@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#FFF">
+
+    <TextView
+        android:id="@+id/active_manager"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:text="@string/active_manager"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc" />
+
+    <TextView
+        android:id="@+id/team_manager"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        android:text="@string/team_manager"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc" />
+
+    <TextView
+        android:id="@+id/finace_manager"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:padding="20dp"
+        android:text="@string/finance_manager"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc" />
+        <TextView
+        android:id="@+id/qiang_manager"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:padding="20dp"
+        android:text="@string/qiang_manager"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc" />
+
+</LinearLayout>

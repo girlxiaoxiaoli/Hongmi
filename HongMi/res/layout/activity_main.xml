@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_main"
+    android:orientation="vertical" >
+    <include layout="@layout/titlebar"/>
+    <FrameLayout
+        android:id="@+id/layout_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/main_radio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E0E0E0"
+        android:orientation="horizontal"
+        android:paddingTop="10dp" >
+
+        <RadioButton
+            android:id="@+id/rb_first_pager"
+            style="@style/main_tab_bottom"
+            android:checked="true"
+            android:drawableTop="@drawable/main_radio_firstpager_btn_selector"
+            android:text="首页" 
+            android:textColor="@drawable/main_radio_text_color_selector"
+            />
+
+        <RadioButton
+            android:id="@+id/rb_news"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/main_radio_news_btn_selector"
+            android:textColor="@drawable/main_radio_text_color_selector"
+            android:text="公告" 
+            />
+
+        <RadioButton
+            android:id="@+id/rb_contact"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/main_radio_contact_btn_selector"
+            android:textColor="@drawable/main_radio_text_color_selector"
+            android:text="留言板" />
+
+        <RadioButton
+            android:id="@+id/rb_personal"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/main_radio_personal_btn_selector"
+            android:textColor="@drawable/main_radio_text_color_selector"
+            android:text="档案" />
+    </RadioGroup>
+
+</LinearLayout>

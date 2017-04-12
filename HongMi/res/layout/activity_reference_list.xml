@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F86B3E"
+        android:padding="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_goback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/goback" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="团队成员"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+       <TextView
+           android:id="@+id/num_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:text="总人数:"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />  
+    </RelativeLayout>
+
+    <zz.guojin.hongmi.view.XListView
+        android:id="@+id/lv_xlistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </zz.guojin.hongmi.view.XListView>
+
+</LinearLayout>

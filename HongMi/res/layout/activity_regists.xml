@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_regist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/titlebar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="推荐人账号" />
+
+                <EditText
+                    android:id="@+id/et_superior"
+                  style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/test1"
+                    style="@style/tv_regsit"
+                    android:text="登陆手机号" />
+
+                <EditText
+                    android:id="@+id/et_login_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:maxLength="11"
+                    android:phoneNumber="true" />
+
+                <Button
+                    android:id="@+id/btn_sms"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="3"
+                    android:background="@drawable/buttom_comm_shape"
+                    android:gravity="center"
+                    android:text="获取验证码"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="短信验证码" />
+
+                <EditText
+                    android:id="@+id/et_sms_code"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/test1"
+                  style="@style/tv_regsit"
+                    android:gravity="right"
+                    android:text="真实姓名" />
+
+                <EditText
+                    android:id="@+id/et_true_name"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="登陆密码" />
+
+                <EditText
+                    android:id="@+id/et_pwd"
+                   style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:inputType="textPassword"
+                    android:maxLength="12"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="确认密码" />
+
+                <EditText
+                    android:id="@+id/et_pwd2"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:inputType="textPassword"
+                    android:maxLength="12"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                   style="@style/tv_regsit"
+                    android:text="二级密码" />
+
+                <EditText
+                    android:id="@+id/et_pwd_second"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:inputType="textPassword"
+                    android:maxLength="12"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="确认二级密码" />
+
+                <EditText
+                    android:id="@+id/et_pwd_second2"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:inputType="textPassword"
+                    android:maxLength="12"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="身份证" />
+
+                <EditText
+                    android:id="@+id/et_card"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:maxLength="18"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="QQ" />
+
+                <EditText
+                    android:id="@+id/et_qq"
+                    style="@style/et_regsit"
+                    android:inputType="number"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="银行账号" />
+
+                <EditText
+                    android:id="@+id/et_bank_account"
+                   style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:maxLength="18"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="银行名称" />
+
+                <EditText
+                    android:id="@+id/et_bank_name"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:maxLines="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                   style="@style/tv_regsit"
+                    android:text="开户人" />
+
+                <EditText
+                    android:id="@+id/et_bank_user"
+                   style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                   style="@style/tv_regsit"
+                    android:text="微信" />
+
+                <EditText
+                    android:id="@+id/et_chat"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    style="@style/tv_regsit"
+                    android:text="支付宝" />
+
+                <EditText
+                    android:id="@+id/et_alipay"
+                    style="@style/et_regsit"
+                    android:background="@drawable/offer_et_money_bg_shape"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/cb_toyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:paddingLeft="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我已完全了解所有风险。" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/but_zhuce"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/buttom_comm_shape"
+                android:text="注    册"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

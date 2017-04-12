@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include layout="@layout/titlebar"/>
+     <RadioGroup
+        android:id="@+id/sex"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp" >
+
+        <RadioButton
+            android:gravity="center"
+            android:id="@+id/rb_male"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:text="确认收款" />
+                <RadioButton
+            android:gravity="center"
+            android:id="@+id/rb_male1"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:text="交易投诉" />
+
+    </RadioGroup>
+        <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        />
+        
+            <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="上传图片" 
+        android:visibility="gone"
+        android:onClick="btn_onclick_camera"
+        />
+     
+     
+    
+   <RelativeLayout 
+       android:layout_marginTop="30dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       >
+       <Button
+           android:id="@+id/refer"
+           android:layout_marginRight="50dp"
+           android:layout_alignParentRight="true" 
+           android:layout_width="wrap_content"
+           android:layout_height="30dp"
+           android:background="#ffff00"
+           android:textColor="#ff0000"
+           android:text="提交"
+           />
+       
+       
+       
+   </RelativeLayout>  
+    
+
+</LinearLayout>

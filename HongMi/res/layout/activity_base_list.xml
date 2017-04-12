@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    tools:context=".BaseListActivity" >
+<include layout="@layout/titlebar"/>
+<zz.guojin.hongmi.view.XListView 
+    android:id="@+id/list_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@color/grey"
+    android:dividerHeight="2dp"/>
+   
+
+</LinearLayout>

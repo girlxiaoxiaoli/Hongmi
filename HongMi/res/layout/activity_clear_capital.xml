@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClearCapital" >
+
+    <include layout="@layout/titlebar" />
+
+    <TextView
+        android:id="@+id/tv_clear_capital"
+        style="@style/layout5"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/clear_capital" />
+
+    <EditText
+        android:id="@+id/et_clear_capital"
+        style="@style/layout"
+        android:layout_alignBottom="@id/tv_clear_capital"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@id/tv_clear_capital"
+        android:background="@drawable/offer_et_money_bg_shape"
+        android:inputType="number"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/tv_pwd_clear_capital"
+        style="@style/layout5"
+        android:layout_alignLeft="@id/tv_clear_capital"
+        android:layout_below="@id/tv_clear_capital"
+        android:layout_marginTop="50dp"
+        android:text="@string/secpwd" />
+
+    <EditText
+        android:id="@+id/et_pwd_clear_capital"
+        style="@style/layout"
+        android:layout_alignBottom="@id/tv_pwd_clear_capital"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="30dp"
+        android:layout_toRightOf="@id/tv_pwd_clear_capital"
+        android:background="@drawable/offer_et_money_bg_shape"
+        android:inputType="textPassword"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/tip_clear_capital"
+        style="@style/layout5"
+        android:layout_alignLeft="@id/tv_pwd_clear_capital"
+        android:layout_below="@id/tv_pwd_clear_capital"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/tip_content3" />
+
+    <TextView
+        android:id="@+id/confirm_clear_capital"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_below="@id/tip_clear_capital"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorTheme"
+        android:text="@string/confirm"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

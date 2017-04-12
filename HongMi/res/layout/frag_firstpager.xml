@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg1"
+                android:padding="20dp" >
+
+                <ImageView
+                    android:id="@+id/logo_frist"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/logo" />
+
+                <TextView
+                    android:id="@+id/tv_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="5dp"
+                    android:text="退出" />
+
+                <TextView
+                    android:id="@+id/name_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/logo_frist"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/logo_frist"
+                    android:text="会员账号"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_name_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/name_user"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/name_user"
+                    android:text="123456"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/id_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/name_user"
+                    android:layout_below="@id/name_user"
+                    android:text="会员编号"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_id_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/id_user"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/id_user"
+                    android:text="12"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/grade_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/id_user"
+                    android:layout_below="@id/id_user"
+                    android:text="会员等级"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_grade_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/grade_user"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/grade_user"
+                    android:text="红米会员"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="@color/colorTheme" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg1"
+                android:orientation="horizontal" >
+
+                <RelativeLayout style="@style/weight_width" >
+
+                    <TextView
+                        android:id="@+id/money1"
+                        style="@style/tv_first"
+                        android:text="红米钱包" />
+
+                    <TextView
+                        android:id="@+id/tv_money1"
+                        style="@style/tv_first"
+                        android:layout_below="@id/money1"
+                        android:text="0" />
+                </RelativeLayout>
+
+                <View style="@style/space_vertical" />
+
+                <RelativeLayout style="@style/weight_width" >
+
+                    <TextView
+                        android:id="@+id/money2"
+                        style="@style/tv_first"
+                        android:text="经理钱包" />
+
+                    <TextView
+                        android:id="@+id/tv_money2"
+                        style="@style/tv_first"
+                        android:layout_below="@id/money2"
+                        android:text="0" />
+                </RelativeLayout>
+
+                <View style="@style/space_vertical" />
+
+                <RelativeLayout style="@style/weight_width" >
+
+                    <TextView
+                        android:id="@+id/money3"
+                        style="@style/tv_first"
+                        android:text="推荐钱包" />
+
+                    <TextView
+                        android:id="@+id/tv_money3"
+                        style="@style/tv_first"
+                        android:layout_below="@id/money3"
+                        android:text="0" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View style="@style/space_horizontal" />
+
+            <LinearLayout
+                style="@style/layout"
+                android:background="#ffffff"
+                android:orientation="horizontal"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_dami"
+                    style="@style/layout4"
+                    android:layout_height="50dp"
+                    android:background="@drawable/da_mi_shape"
+                    android:gravity="center"
+                    android:text="打米"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_shoumi"
+                    style="@style/layout4"
+                    android:layout_height="50dp"
+                    android:background="@drawable/shou_mi_shape"
+                    android:gravity="center"
+                    android:text="收米"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View style="@style/space_horizontal" />
+
+            <TextView
+                style="@style/layout"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="温馨提示：投资有风险，入市需 谨慎."
+                android:textColor="@color/colorTheme"
+                android:textSize="15sp" />
+
+            <View style="@style/space_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/shopping"
+                    style="@style/layout4"
+                    android:layout_height="60dp"
+                    android:background="@drawable/shop_shape"
+                    android:drawableLeft="@drawable/shopping"
+                    android:gravity="center"
+                    android:text="红米商城"
+                    android:textColor="#ff0000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/luck_wheel"
+                    style="@style/layout4"
+                    android:layout_height="60dp"
+                    android:background="@drawable/shop_shape"
+                    android:drawableLeft="@drawable/turning"
+                    android:gravity="center"
+                    android:text="大转盘"
+                    android:textColor="#009fec"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <View style="@style/space_horizontal" />
+
+            <zz.guojin.hongmi.gridview.MyGridView
+                android:id="@+id/gridview"
+                style="@style/layout"
+                android:horizontalSpacing="1dp"
+                android:numColumns="3"
+                android:verticalSpacing="1dp" />
+        </LinearLayout>
+    </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+</LinearLayout>
