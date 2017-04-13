@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout_award_info_shape">
+    <TextView
+        android:id="@+id/info_award"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="恭喜中奖"
+        android:textSize="20sp"
+        android:textColor="#666666"/>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="5dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#88666666"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+    <TextView
+        android:id="@+id/sure_award"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="确 定"
+        android:textSize="20sp"
+        android:textColor="#666666"/>
+
+
+</LinearLayout>

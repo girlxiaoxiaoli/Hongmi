@@ -63,5 +63,6 @@
     <string name="title_activity_administrator_account">AdministratorAccount</string>
     <string name="title_activity_clear_capital">ClearCapital</string>
     <string name="title_activity_un_freeze_record">UnFreezeRecord</string>
+    <string name="title_activity_award_record">AwardRecord</string>
 
 </resources>

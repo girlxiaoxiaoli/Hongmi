@@ -26,6 +26,7 @@ import zz.guojin.hongmi.activity.GetOrderHistoryActivity;
 import zz.guojin.hongmi.activity.GiveOrderHistoryActivity;
 import zz.guojin.hongmi.activity.LianjieActivity;
 import zz.guojin.hongmi.activity.LoginActivity;
+import zz.guojin.hongmi.activity.LuckyWheelActivity;
 import zz.guojin.hongmi.activity.MemberreRegistActivity;
 import zz.guojin.hongmi.activity.QiangOrderActivity;
 import zz.guojin.hongmi.activity.ReferenceActivity;
@@ -140,7 +141,7 @@ public class FirstPagerFragment extends BaseFragment2 implements
 			break;
 		case R.id.luck_wheel:
 //			转盘
-			ToastUtils.showTextToast(getActivity(), "大转盘");
+			JumpUtil.JumpActivity(getActivity(), LuckyWheelActivity.class);
 
 			break;
 		case R.id.tv_exit:

@@ -35,7 +35,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <!-- 注册页面  textview -->
@@ -123,5 +123,12 @@
     <style name="layout5">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+     <!-- layout -->
+    <style name="layout6">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 </resources>

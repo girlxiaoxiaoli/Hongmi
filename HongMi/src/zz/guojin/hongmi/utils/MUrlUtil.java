@@ -83,6 +83,14 @@ public class MUrlUtil {
 	public static final String CONFIRM_MONEY = "App/deal/tgbz_tx_cl";
 	// 团队管理
 	public static final String SHOU_PASS_URL = "App/help/censor";
+	
+	// 大转盘奖品等级 App/turn/index
+		public static final String AWARD = "App/turn/index";
+		// 大转盘请求奖项接口 Awards
+		public static final String AWARDS = "App/turn/get_v";
+		//抽奖记录
+		public static final String AWARD_RECORD = "app/turn/turn_list";
+
 
 	/* 数据对接到此 */
 

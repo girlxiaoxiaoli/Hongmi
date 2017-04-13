@@ -8,14 +8,14 @@ import butterknife.ButterKnife.ViewBinder;
 public class OutActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.OutActivity> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131034340, "field 'spinnerst'");
-    target.spinnerst = finder.castView(view, 2131034340, "field 'spinnerst'");
-    view = finder.findRequiredView(source, 2131034342, "field 'ed'");
-    target.ed = finder.castView(view, 2131034342, "field 'ed'");
+    view = finder.findRequiredView(source, 2131034357, "field 'ed'");
+    target.ed = finder.castView(view, 2131034357, "field 'ed'");
+    view = finder.findRequiredView(source, 2131034355, "field 'spinnerst'");
+    target.spinnerst = finder.castView(view, 2131034355, "field 'spinnerst'");
   }
 
   @Override public void unbind(T target) {
-    target.spinnerst = null;
     target.ed = null;
+    target.spinnerst = null;
   }
 }

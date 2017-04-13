@@ -8,8 +8,12 @@ import butterknife.ButterKnife.ViewBinder;
 public class GetActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.GetActivity> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131034443, "field 'iv_goback' and method 'goBack'");
-    target.iv_goback = finder.castView(view, 2131034443, "field 'iv_goback'");
+    view = finder.findRequiredView(source, 2131034135, "field 'tuijian_purse_get'");
+    target.tuijian_purse_get = finder.castView(view, 2131034135, "field 'tuijian_purse_get'");
+    view = finder.findRequiredView(source, 2131034461, "field 'title'");
+    target.title = finder.castView(view, 2131034461, "field 'title'");
+    view = finder.findRequiredView(source, 2131034460, "field 'iv_goback' and method 'goBack'");
+    target.iv_goback = finder.castView(view, 2131034460, "field 'iv_goback'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -18,18 +22,10 @@ public class GetActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.GetActi
           target.goBack();
         }
       });
-    view = finder.findRequiredView(source, 2131034138, "field 'tv_jingli_purse'");
-    target.tv_jingli_purse = finder.castView(view, 2131034138, "field 'tv_jingli_purse'");
     view = finder.findRequiredView(source, 2131034143, "field 'et_pwd_get'");
     target.et_pwd_get = finder.castView(view, 2131034143, "field 'et_pwd_get'");
-    view = finder.findRequiredView(source, 2131034137, "field 'tv_hongmi_purse'");
-    target.tv_hongmi_purse = finder.castView(view, 2131034137, "field 'tv_hongmi_purse'");
-    view = finder.findRequiredView(source, 2131034132, "field 'purse'");
-    target.purse = finder.castView(view, 2131034132, "field 'purse'");
-    view = finder.findRequiredView(source, 2131034139, "field 'tv_tuijian_purse'");
-    target.tv_tuijian_purse = finder.castView(view, 2131034139, "field 'tv_tuijian_purse'");
-    view = finder.findRequiredView(source, 2131034444, "field 'title'");
-    target.title = finder.castView(view, 2131034444, "field 'title'");
+    view = finder.findRequiredView(source, 2131034141, "field 'et_money_get'");
+    target.et_money_get = finder.castView(view, 2131034141, "field 'et_money_get'");
     view = finder.findRequiredView(source, 2131034144, "field 'jsbz' and method 'onClick'");
     target.jsbz = finder.castView(view, 2131034144, "field 'jsbz'");
     view.setOnClickListener(
@@ -40,31 +36,35 @@ public class GetActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.GetActi
           target.onClick(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131034134, "field 'jingli_purse_get'");
-    target.jingli_purse_get = finder.castView(view, 2131034134, "field 'jingli_purse_get'");
-    view = finder.findRequiredView(source, 2131034135, "field 'tuijian_purse_get'");
-    target.tuijian_purse_get = finder.castView(view, 2131034135, "field 'tuijian_purse_get'");
+    view = finder.findRequiredView(source, 2131034132, "field 'purse'");
+    target.purse = finder.castView(view, 2131034132, "field 'purse'");
+    view = finder.findRequiredView(source, 2131034137, "field 'tv_hongmi_purse'");
+    target.tv_hongmi_purse = finder.castView(view, 2131034137, "field 'tv_hongmi_purse'");
     view = finder.findRequiredView(source, 2131034131, "field 'll_accept_help'");
     target.ll_accept_help = finder.castView(view, 2131034131, "field 'll_accept_help'");
-    view = finder.findRequiredView(source, 2131034141, "field 'et_money_get'");
-    target.et_money_get = finder.castView(view, 2131034141, "field 'et_money_get'");
+    view = finder.findRequiredView(source, 2131034139, "field 'tv_tuijian_purse'");
+    target.tv_tuijian_purse = finder.castView(view, 2131034139, "field 'tv_tuijian_purse'");
+    view = finder.findRequiredView(source, 2131034138, "field 'tv_jingli_purse'");
+    target.tv_jingli_purse = finder.castView(view, 2131034138, "field 'tv_jingli_purse'");
     view = finder.findRequiredView(source, 2131034133, "field 'hongmi_purse_get'");
     target.hongmi_purse_get = finder.castView(view, 2131034133, "field 'hongmi_purse_get'");
+    view = finder.findRequiredView(source, 2131034134, "field 'jingli_purse_get'");
+    target.jingli_purse_get = finder.castView(view, 2131034134, "field 'jingli_purse_get'");
   }
 
   @Override public void unbind(T target) {
-    target.iv_goback = null;
-    target.tv_jingli_purse = null;
-    target.et_pwd_get = null;
-    target.tv_hongmi_purse = null;
-    target.purse = null;
-    target.tv_tuijian_purse = null;
-    target.title = null;
-    target.jsbz = null;
-    target.jingli_purse_get = null;
     target.tuijian_purse_get = null;
-    target.ll_accept_help = null;
+    target.title = null;
+    target.iv_goback = null;
+    target.et_pwd_get = null;
     target.et_money_get = null;
+    target.jsbz = null;
+    target.purse = null;
+    target.tv_hongmi_purse = null;
+    target.ll_accept_help = null;
+    target.tv_tuijian_purse = null;
+    target.tv_jingli_purse = null;
     target.hongmi_purse_get = null;
+    target.jingli_purse_get = null;
   }
 }

@@ -32,7 +32,7 @@
             android:layout_below="@id/tv_tong"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@drawable/tong" />
+           />
 
         <TextView
             android:id="@+id/money_tong"
@@ -73,7 +73,7 @@
             android:layout_below="@id/tv_yin"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@drawable/yin" />
+            />
 
         <TextView
             android:id="@+id/money_yin"
@@ -114,7 +114,7 @@
             android:layout_below="@id/tv_jin"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@drawable/jin" />
+        />
 
         <TextView
             android:id="@+id/money_jin"
@@ -156,7 +156,7 @@
             android:layout_below="@id/tv_zuan"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@drawable/zuan" />
+             />
 
         <TextView
             android:id="@+id/money_zuan"

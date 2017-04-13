@@ -203,6 +203,16 @@
             android:name="zz.guojin.hongmi.activity.UnFreezeRecord"
             android:label="@string/title_activity_un_freeze_record" >
         </activity>
+        <activity android:name="zz.guojin.hongmi.activity.LuckyWheelActivity" >
+        </activity>
+        <activity
+            android:name="zz.guojin.hongmi.activity.AwardRecord"
+            android:label="@string/title_activity_award_record"
+            android:parentActivityName="zz.guojin.hongmi.activity.BaseListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="zz.guojin.hongmi.activity.BaseListActivity" />
+        </activity>
     </application>
 
 </manifest>
