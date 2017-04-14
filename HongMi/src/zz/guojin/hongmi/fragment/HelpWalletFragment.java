@@ -60,11 +60,17 @@ public class HelpWalletFragment extends BaseListFragment {
 						.getUg_id());
 				hodler.setText(R.id.help_wallet_date, walletList.get(position)
 						.getUg_gettime());
-				hodler.setText(R.id.help_wallet_explain,
-						walletList.get(position).getUg_money());
+				hodler.setText(R.id.help_wallet_explain, walletList
+						.get(position).getUg_note()
+						);
 
-				hodler.setText(R.id.help_wallet_in_out, walletList
-						.get(position).getUg_note());
+				hodler.setText(R.id.help_wallet_in_out,walletList.get(position).getUg_money());
+				hodler.setText(R.id.help_wallet_old, walletList
+						.get(position).getUg_allget());
+				hodler.setText(R.id.help_wallet_new, walletList
+						.get(position).getUg_balance());
+				hodler.setText(R.id.help_wallet_acount, walletList
+						.get(position).getUg_account());
 
 			}
 		};

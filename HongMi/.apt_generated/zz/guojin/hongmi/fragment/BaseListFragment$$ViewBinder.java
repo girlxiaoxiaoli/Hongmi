@@ -8,8 +8,8 @@ import butterknife.ButterKnife.ViewBinder;
 public class BaseListFragment$$ViewBinder<T extends zz.guojin.hongmi.fragment.BaseListFragment> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131034353, "field 'xlistview'");
-    target.xlistview = finder.castView(view, 2131034353, "field 'xlistview'");
+    view = finder.findRequiredView(source, 2131034354, "field 'xlistview'");
+    target.xlistview = finder.castView(view, 2131034354, "field 'xlistview'");
   }
 
   @Override public void unbind(T target) {

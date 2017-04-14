@@ -3,10 +3,12 @@ package zz.guojin.hongmi.activity;
 
 import zz.guojin.hongmi.R;
 import zz.guojin.hongmi.bean.ReQuestBean;
+import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 
 import com.google.gson.Gson;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.yolanda.nohttp.NoHttp;
 import com.yolanda.nohttp.RequestMethod;
 import com.yolanda.nohttp.rest.OnResponseListener;
@@ -79,6 +81,7 @@ public class GoodsInfoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_goods_info);
+		AppManager.getInstance().addActivity(this);
 		ButterKnife.bind(this);
 		initData();
 	}
@@ -90,42 +93,9 @@ public class GoodsInfoActivity extends Activity {
 		price = (String) getIntent().getCharSequenceExtra("price");
 		tvPrice.setText("￥" + price);
 		infoGoods.setText(Html.fromHtml(content));
-		requestQueue1 = NoHttp.newRequestQueue();
-		Request<Bitmap> bitmapRequest = NoHttp.createImageRequest(img);
-		bitmapRequest.setCancelSign(TAG);
-		requestQueue1.add(11, bitmapRequest, responseListener);
+		ImageLoader.getInstance().displayImage(img, imgGoods);
 	}
 
-	OnResponseListener<Bitmap> responseListener = new OnResponseListener<Bitmap>() {
-
-		@Override
-		public void onStart(int what) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void onSucceed(int what, Response<Bitmap> response) {
-			// TODO Auto-generated method stub
-			if (what == 11) {
-				bitmap = response.get();
-				imgGoods.setImageBitmap(bitmap);
-			}
-		}
-
-		@Override
-		public void onFinish(int what) {
-			// TODO Auto-generated method stub
-
-		}
-
-		@Override
-		public void onFailed(int what, Response<Bitmap> response) {
-			// TODO Auto-generated method stub
-			Toast.makeText(GoodsInfoActivity.this, "图片加载失败", 0).show();
-
-		}
-	};
 
 	@OnClick({ R.id.tv_go_back, R.id.tv_sub, R.id.tv_counts, R.id.btn_pay })
 	public void onClick(View view) {
@@ -134,7 +104,7 @@ public class GoodsInfoActivity extends Activity {
 
 		switch (view.getId()) {
 		case R.id.tv_go_back:
-			finish();
+			AppManager.getInstance().killActivity(this);
 			break;
 		case R.id.tv_sub:// 减
 
@@ -161,27 +131,26 @@ public class GoodsInfoActivity extends Activity {
 			mHandler.sendMessage(message);
 			break;
 		case R.id.btn_pay:
-			String phone_user = phone.getText().toString().trim();
-			String name_user = name.getText().toString().trim();
+//			String phone_user = phone.getText().toString().trim();
+//			String name_user = name.getText().toString().trim();
 
 			getPay(id, etNumber.getText().toString(), et_address.getText()
-					.toString(), name_user, phone_user);
+					.toString());
 
 			break;
 		}
 
 	}
 
-	private void getPay(String id, String nums, String address, String name,
-			String phone) {
+	private void getPay(String id, String nums, String address) {
 
 		Request<String> request = NoHttp.createStringRequest(MUrlUtil.BASE_URL
 				+ MUrlUtil.PAY, RequestMethod.GET);
 		request.add("id", id);
 		request.add("nums", nums);
 		request.add("address", address);
-		request.add("name",name);
-		request.add("phone",phone);
+//		request.add("name",name);
+//		request.add("phone",phone);
 		request.setCancelSign(TAG);
 		requestQueue1.add(22, request, responseListener2);
 

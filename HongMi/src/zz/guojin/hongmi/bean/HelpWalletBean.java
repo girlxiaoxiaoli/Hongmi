@@ -25,15 +25,26 @@ public class HelpWalletBean implements Serializable{
 	}
 	public static class WalletData{
 		private String ug_id;
+		
 		@Override
 		public String toString() {
-			return "WalletData [ug_id=" + ug_id + ", ug_gettime=" + ug_gettime + ", ug_note=" + ug_note + ", ug_allget=" + ug_allget + ", ug_money=" + ug_money + ", ug_balance=" + ug_balance + "]";
+			return "WalletData [ug_id=" + ug_id + ", ug_gettime=" + ug_gettime
+					+ ", ug_note=" + ug_note + ", ug_allget=" + ug_allget
+					+ ", ug_money=" + ug_money + ", ug_balance=" + ug_balance
+					+ ", ug_account=" + ug_account + "]";
 		}
 		private String ug_gettime;
 		private String ug_note;
 		private String ug_allget;
 		private String ug_money;
 		private String ug_balance;
+		private String ug_account;
+		public String getUg_account() {
+			return ug_account;
+		}
+		public void setUg_account(String ug_account) {
+			this.ug_account = ug_account;
+		}
 		public String getUg_id() {
 			return ug_id;
 		}

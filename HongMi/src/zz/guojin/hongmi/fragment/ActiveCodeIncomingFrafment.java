@@ -3,6 +3,8 @@ package zz.guojin.hongmi.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.PrivateCredentialPermission;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,7 +31,7 @@ import zz.guojin.hongmi.R;
 
 //激活码转入
 public class ActiveCodeIncomingFrafment extends BaseListFragment {
-
+private String TAG = getClassName();
 	ArrayList<ExchangeDataBean> exhg = new ArrayList<ExchangeDataBean>();
 
 	private Request<String> request;
@@ -69,8 +71,8 @@ public class ActiveCodeIncomingFrafment extends BaseListFragment {
 			@Override
 			public void covert(int position, ViewHodler hodler) {
 				
-				hodler.setText(R.id.ug_id, exhg.get(position).getUg_account());
-				hodler.setText(R.id.js_user, exhg.get(position).getUg_othraccount());
+				hodler.setText(R.id.ug_id,  exhg.get(position).getUg_account());
+				hodler.setText(R.id.js_user,exhg.get(position).getUg_othraccount());
 				hodler.setText(R.id.ug_gettime, exhg.get(position).getUg_money());
 				hodler.setText(R.id.ug_allget, exhg.get(position).getUg_gettime());
 				hodler.setText(R.id.ug_money,exhg.get(position).getUg_note());

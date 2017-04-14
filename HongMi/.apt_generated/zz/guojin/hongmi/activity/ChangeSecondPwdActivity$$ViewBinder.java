@@ -10,6 +10,10 @@ public class ChangeSecondPwdActivity$$ViewBinder<T extends zz.guojin.hongmi.acti
     View view;
     view = finder.findRequiredView(source, 2131034162, "field 'before'");
     target.before = finder.castView(view, 2131034162, "field 'before'");
+    view = finder.findRequiredView(source, 2131034163, "field 'news'");
+    target.news = finder.castView(view, 2131034163, "field 'news'");
+    view = finder.findRequiredView(source, 2131034465, "field 'title'");
+    target.title = finder.castView(view, 2131034465, "field 'title'");
     view = finder.findRequiredView(source, 2131034165, "field 'butt' and method 'onClick'");
     target.butt = finder.castView(view, 2131034165, "field 'butt'");
     view.setOnClickListener(
@@ -20,12 +24,10 @@ public class ChangeSecondPwdActivity$$ViewBinder<T extends zz.guojin.hongmi.acti
           target.onClick(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131034461, "field 'title'");
-    target.title = finder.castView(view, 2131034461, "field 'title'");
     view = finder.findRequiredView(source, 2131034164, "field 'qrnew'");
     target.qrnew = finder.castView(view, 2131034164, "field 'qrnew'");
-    view = finder.findRequiredView(source, 2131034460, "field 'goback' and method 'goBack'");
-    target.goback = finder.castView(view, 2131034460, "field 'goback'");
+    view = finder.findRequiredView(source, 2131034464, "field 'goback' and method 'goBack'");
+    target.goback = finder.castView(view, 2131034464, "field 'goback'");
     view.setOnClickListener(
       new butterknife.internal.DebouncingOnClickListener() {
         @Override public void doClick(
@@ -34,19 +36,17 @@ public class ChangeSecondPwdActivity$$ViewBinder<T extends zz.guojin.hongmi.acti
           target.goBack();
         }
       });
-    view = finder.findRequiredView(source, 2131034163, "field 'news'");
-    target.news = finder.castView(view, 2131034163, "field 'news'");
     view = finder.findRequiredView(source, 2131034161, "field 'll_my_second_pwd'");
     target.ll_my_second_pwd = finder.castView(view, 2131034161, "field 'll_my_second_pwd'");
   }
 
   @Override public void unbind(T target) {
     target.before = null;
-    target.butt = null;
+    target.news = null;
     target.title = null;
+    target.butt = null;
     target.qrnew = null;
     target.goback = null;
-    target.news = null;
     target.ll_my_second_pwd = null;
   }
 }

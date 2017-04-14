@@ -120,7 +120,7 @@ public class PersonalDataActivity extends BaseActivity {
 			PersonalBean personalBean = gson.fromJson(info, PersonalBean.class);
 
 			name.setText(personalBean.getData().getUe_truename());
-			phone.setText(personalBean.getData().getUe_phone());
+			phone.setText(personalBean.getData().getUe_account());
 			weixin.setText(personalBean.getData().getWeixin());
 			zhifu.setText(personalBean.getData().getZfb());
 			bank.setText(personalBean.getData().getYhmc());

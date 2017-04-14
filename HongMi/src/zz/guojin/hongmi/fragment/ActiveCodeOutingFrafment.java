@@ -65,8 +65,8 @@ public class ActiveCodeOutingFrafment extends BaseListFragment {
 			@Override
 			public void covert(int position, ViewHodler hodler) {
 				
-				hodler.setText(R.id.ug_id, exhg.get(position).getUg_account());
-				hodler.setText(R.id.js_user, exhg.get(position).getUg_othraccount());
+				hodler.setText(R.id.ug_id, exhg.get(position).getUg_othraccount());
+				hodler.setText(R.id.js_user, exhg.get(position).getUg_account());
 				hodler.setText(R.id.ug_gettime, exhg.get(position).getUg_money());
 				hodler.setText(R.id.ug_allget, exhg.get(position).getUg_gettime());
 				hodler.setText(R.id.ug_money,exhg.get(position).getUg_note());

@@ -213,6 +213,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="zz.guojin.hongmi.activity.BaseListActivity" />
         </activity>
+        <activity android:name="zz.guojin.hongmi.activity.GoodsInfoActivity"
+            android:screenOrientation="portrait">
+            
+        </activity>
     </application>
 
 </manifest>

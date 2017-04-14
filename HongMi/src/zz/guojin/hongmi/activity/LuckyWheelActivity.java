@@ -105,7 +105,7 @@ public class LuckyWheelActivity extends BaseActivity {
 
 	// 做减速运动，指向根据一个float型数，指向一个位置
 	private void toDeceleration(float angle) {
-		inStartPosition = 720 + angle;// 本次旋转的角度
+		inStartPosition = 1440 + angle;// 本次旋转的角度
 //		System.out.println("go------"+"angle="+angle+"---inStartPosition="+inStartPosition);
 		// 设置旋转参数
 		RotateAnimation rotateAnimation = new RotateAnimation(0,

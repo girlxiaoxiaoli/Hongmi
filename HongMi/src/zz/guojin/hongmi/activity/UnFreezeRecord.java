@@ -74,10 +74,11 @@ public void initData() {
 	public void doWhatForRequest(int what, String info) {
 		// TODO Auto-generated method stub
      try {
+    	 System.out.println("-----"+info);
 		JSONObject jsonObject = new JSONObject(info);
 		String error = jsonObject.getString("error");
 		if("1".equals(error)){
-			if(jsonObject.getString("data").length()<=0){
+			if(jsonObject.getJSONArray("data").length()<=0){
 				ToastUtils.showTextToast(context, "暂无数据");
 				return;
 			}else {

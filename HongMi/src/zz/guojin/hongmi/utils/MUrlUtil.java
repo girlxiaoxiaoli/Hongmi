@@ -5,7 +5,7 @@ package zz.guojin.hongmi.utils;
  */
 public class MUrlUtil {
 	// www.jinyuejinrong68.com
-	public static final String BASE_URL = "http://192.168.1.139/";
+	public static final String BASE_URL = "http://hm.guojin123.net/";
 	// 测试登录URL
 	public static final String LOGIN_URL = "app/login/login";
 	// 首页
@@ -18,10 +18,8 @@ public class MUrlUtil {
 	public static final String REGIST = "app/login/register";
 	// 新闻 http://192.168.1.22/App/help/news
 	public static final String NEWS_URL = "App/help/news";
-
 	// 个人资料
 	public static final String PERSONAL_DATA = "App/help/promember";
-
 	// 修改登陆密码
 	public static final String CHANGE_LOGIN_PWD = "App/apply/revamp";
 	// 修改二级密码
@@ -32,7 +30,6 @@ public class MUrlUtil {
 	public static final String ACTIVE_CODE = "App/apply/pinnum";
 	// 激活码互转 exchange
 	public static final String EXCHANGE_URL = "App/apply/activa";
-
 	// 激活码转入记录
 	public static final String EXCHANGE_INCOMING = "App/apply/pin_list1";
 
@@ -83,14 +80,13 @@ public class MUrlUtil {
 	public static final String CONFIRM_MONEY = "App/deal/tgbz_tx_cl";
 	// 团队管理
 	public static final String SHOU_PASS_URL = "App/help/censor";
-	
-	// 大转盘奖品等级 App/turn/index
-		public static final String AWARD = "App/turn/index";
-		// 大转盘请求奖项接口 Awards
-		public static final String AWARDS = "App/turn/get_v";
-		//抽奖记录
-		public static final String AWARD_RECORD = "app/turn/turn_list";
 
+	// 大转盘奖品等级 App/turn/index
+	public static final String AWARD = "App/turn/index";
+	// 大转盘请求奖项接口 Awards
+	public static final String AWARDS = "App/turn/get_v";
+	// 抽奖记录
+	public static final String AWARD_RECORD = "app/turn/turn_list";
 
 	/* 数据对接到此 */
 
