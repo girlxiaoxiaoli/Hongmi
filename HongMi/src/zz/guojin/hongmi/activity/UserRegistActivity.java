@@ -168,6 +168,14 @@ public class UserRegistActivity extends BaseActivity {
 		String chatNum = et_chat.getText().toString().trim();
 		// 支付宝
 		String alipay = et_alipay.getText().toString().trim();
+		if (!pwd2.equals(pwd)) {
+			ToastUtils.showTextToast(ctx, "两次登陆密码不一致");
+			return;
+		}
+		if (!secondPwd2.equals(secondPwd)) {
+			ToastUtils.showTextToast(ctx, "两次二级密码不一致");
+			return;
+		}
 		if (TextUtils.isEmpty(referrer) || TextUtils.isEmpty(phone)
 				|| TextUtils.isEmpty(sms_code)
 				|| TextUtils.isEmpty(true_name) || TextUtils.isEmpty(pwd)

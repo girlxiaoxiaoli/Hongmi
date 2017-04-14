@@ -51,10 +51,10 @@ public class GoodsInfoActivity extends Activity {
 	TextView tvCount;
 	@Bind(R.id.tv_price)
 	TextView tvPrice;
-	@Bind(R.id.name)
-	EditText name;
-	@Bind(R.id.phone)
-	EditText phone;
+//	@Bind(R.id.name)
+//	EditText name;
+//	@Bind(R.id.phone)
+//	EditText phone;
 
 	@Bind(R.id.btn_pay)
 	Button btnPay;
@@ -83,6 +83,7 @@ public class GoodsInfoActivity extends Activity {
 		setContentView(R.layout.activity_goods_info);
 		AppManager.getInstance().addActivity(this);
 		ButterKnife.bind(this);
+		requestQueue1 = NoHttp.newRequestQueue();
 		initData();
 	}
 

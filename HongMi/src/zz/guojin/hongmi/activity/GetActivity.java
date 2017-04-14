@@ -221,7 +221,7 @@ public class GetActivity extends BaseActivity {
 			System.out.println("接受info" + info);
 			Gson gson = new Gson();
 			RuquestBean qs = gson.fromJson(info, RuquestBean.class);
-			System.out.println(qs.getError() + "有没有数据呀！！！！！！！！！！！！！！！！");
+//			System.out.println(qs.getError() + "有没有数据呀！！！！！！！！！！！！！！！！");
 			if ("1".equals(qs.getError())) {
 				ToastUtils.showTextToast(ctx, qs.getMsg());
 				finish();

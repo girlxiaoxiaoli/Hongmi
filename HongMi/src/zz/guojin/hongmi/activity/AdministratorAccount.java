@@ -22,7 +22,7 @@ import android.support.v4.app.NavUtils;
  * @author Administrator
  *
  */
-public class AdministratorAccount extends BaseActivity {
+public class AdministratorAccount extends BaseActivity implements OnClickListener{
 	private ImageView goback;
 	private TextView title;
 	private WebView webView;
@@ -54,15 +54,7 @@ public class AdministratorAccount extends BaseActivity {
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
-		goback.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				AppManager.getInstance().killActivity(getClass());
-				
-			}
-		});
+		goback .setOnClickListener(this);
 		
 	}
 
@@ -70,6 +62,7 @@ public class AdministratorAccount extends BaseActivity {
 	public void initData() {
 		// TODO Auto-generated method stub
 		webView.loadUrl(MUrlUtil.BASE_URL+MUrlUtil.ADMIN_ACCOUNT);
+//		webView.loadUrl("http://192.168.1.2:8090/");
 		WebSettings webSettings = webView.getSettings();
 		webSettings.setJavaScriptEnabled(true);//支持js
 		webSettings.setSupportZoom(false);//不支持缩放
@@ -92,6 +85,12 @@ public void onDestroy() {
 	// TODO Auto-generated method stub
 	super.onDestroy();
 	webView.destroy();
+}
+
+@Override
+public void onClick(View v) {
+	// TODO Auto-generated method stub
+	AppManager.getInstance().killActivity(this);
 }
 	
 }
