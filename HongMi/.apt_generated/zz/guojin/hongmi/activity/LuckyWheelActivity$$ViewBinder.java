@@ -8,16 +8,14 @@ import butterknife.ButterKnife.ViewBinder;
 public class LuckyWheelActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.LuckyWheelActivity> implements ViewBinder<T> {
   @Override public void bind(final Finder finder, final T target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131034253, "field 'fifthAward'");
-    target.fifthAward = finder.castView(view, 2131034253, "field 'fifthAward'");
-    view = finder.findRequiredView(source, 2131034255, "field 'sevenAward'");
-    target.sevenAward = finder.castView(view, 2131034255, "field 'sevenAward'");
+    view = finder.findRequiredView(source, 2131034250, "field 'secondAward'");
+    target.secondAward = finder.castView(view, 2131034250, "field 'secondAward'");
+    view = finder.findRequiredView(source, 2131034252, "field 'fourthAward'");
+    target.fourthAward = finder.castView(view, 2131034252, "field 'fourthAward'");
     view = finder.findRequiredView(source, 2131034251, "field 'thirdAward'");
     target.thirdAward = finder.castView(view, 2131034251, "field 'thirdAward'");
-    view = finder.findRequiredView(source, 2131034245, "field 'layout'");
-    target.layout = finder.castView(view, 2131034245, "field 'layout'");
-    view = finder.findRequiredView(source, 2131034465, "field 'title'");
-    target.title = finder.castView(view, 2131034465, "field 'title'");
+    view = finder.findRequiredView(source, 2131034254, "field 'sixthAward'");
+    target.sixthAward = finder.castView(view, 2131034254, "field 'sixthAward'");
     view = finder.findRequiredView(source, 2131034464, "field 'ivGoback' and method 'click'");
     target.ivGoback = finder.castView(view, 2131034464, "field 'ivGoback'");
     view.setOnClickListener(
@@ -28,22 +26,8 @@ public class LuckyWheelActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.
           target.click(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131034252, "field 'fourthAward'");
-    target.fourthAward = finder.castView(view, 2131034252, "field 'fourthAward'");
-    view = finder.findRequiredView(source, 2131034246, "field 'panWheel'");
-    target.panWheel = finder.castView(view, 2131034246, "field 'panWheel'");
-    view = finder.findRequiredView(source, 2131034254, "field 'sixthAward'");
-    target.sixthAward = finder.castView(view, 2131034254, "field 'sixthAward'");
-    view = finder.findRequiredView(source, 2131034248, "field 'btnClick' and method 'startWheel'");
-    target.btnClick = finder.castView(view, 2131034248, "field 'btnClick'");
-    view.setOnClickListener(
-      new butterknife.internal.DebouncingOnClickListener() {
-        @Override public void doClick(
-          android.view.View p0
-        ) {
-          target.startWheel();
-        }
-      });
+    view = finder.findRequiredView(source, 2131034253, "field 'fifthAward'");
+    target.fifthAward = finder.castView(view, 2131034253, "field 'fifthAward'");
     view = finder.findRequiredView(source, 2131034466, "field 'title_second' and method 'click'");
     target.title_second = finder.castView(view, 2131034466, "field 'title_second'");
     view.setOnClickListener(
@@ -54,25 +38,41 @@ public class LuckyWheelActivity$$ViewBinder<T extends zz.guojin.hongmi.activity.
           target.click(p0);
         }
       });
+    view = finder.findRequiredView(source, 2131034248, "field 'btnClick' and method 'startWheel'");
+    target.btnClick = finder.castView(view, 2131034248, "field 'btnClick'");
+    view.setOnClickListener(
+      new butterknife.internal.DebouncingOnClickListener() {
+        @Override public void doClick(
+          android.view.View p0
+        ) {
+          target.startWheel();
+        }
+      });
+    view = finder.findRequiredView(source, 2131034255, "field 'sevenAward'");
+    target.sevenAward = finder.castView(view, 2131034255, "field 'sevenAward'");
+    view = finder.findRequiredView(source, 2131034246, "field 'panWheel'");
+    target.panWheel = finder.castView(view, 2131034246, "field 'panWheel'");
+    view = finder.findRequiredView(source, 2131034465, "field 'title'");
+    target.title = finder.castView(view, 2131034465, "field 'title'");
+    view = finder.findRequiredView(source, 2131034245, "field 'layout'");
+    target.layout = finder.castView(view, 2131034245, "field 'layout'");
     view = finder.findRequiredView(source, 2131034249, "field 'firstAward'");
     target.firstAward = finder.castView(view, 2131034249, "field 'firstAward'");
-    view = finder.findRequiredView(source, 2131034250, "field 'secondAward'");
-    target.secondAward = finder.castView(view, 2131034250, "field 'secondAward'");
   }
 
   @Override public void unbind(T target) {
-    target.fifthAward = null;
-    target.sevenAward = null;
-    target.thirdAward = null;
-    target.layout = null;
-    target.title = null;
-    target.ivGoback = null;
-    target.fourthAward = null;
-    target.panWheel = null;
-    target.sixthAward = null;
-    target.btnClick = null;
-    target.title_second = null;
-    target.firstAward = null;
     target.secondAward = null;
+    target.fourthAward = null;
+    target.thirdAward = null;
+    target.sixthAward = null;
+    target.ivGoback = null;
+    target.fifthAward = null;
+    target.title_second = null;
+    target.btnClick = null;
+    target.sevenAward = null;
+    target.panWheel = null;
+    target.title = null;
+    target.layout = null;
+    target.firstAward = null;
   }
 }

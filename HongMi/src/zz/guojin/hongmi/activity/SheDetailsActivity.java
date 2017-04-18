@@ -42,101 +42,121 @@ import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
 public class SheDetailsActivity extends BaseActivity {
-	@Bind(R.id.she_id)TextView sid;
-	@Bind(R.id.she_jb)TextView sjb;
-	@Bind(R.id.she_ue_truename)TextView sue_truename;
-	@Bind(R.id.she_ue_accname)TextView sue_accname;
-	@Bind(R.id.she_ue_account)TextView sue_account;
-	@Bind(R.id.she_data)TextView sdata;
-//	@Bind(R.id.she_weixin)TextView sweixin;
-	@Bind(R.id.she_yhmc)TextView syhmc;
-	@Bind(R.id.she_zfb)TextView szfb;
-	@Bind(R.id.she_yhzh)TextView syhzh;
-	@Bind(R.id.title_main)TextView title;
-	@Bind(R.id.img_back) ImageView iv_goback;
-	@Bind(R.id.dakuan_layout) LinearLayout dakuan_layout;
+	@Bind(R.id.she_id)
+	TextView sid;
+	@Bind(R.id.she_jb)
+	TextView sjb;
+	@Bind(R.id.she_ue_truename)
+	TextView sue_truename;
+	@Bind(R.id.she_ue_accname)
+	TextView sue_accname;
+	@Bind(R.id.she_ue_account)
+	TextView sue_account;
+	@Bind(R.id.she_data)
+	TextView sdata;
+	// @Bind(R.id.she_weixin)TextView sweixin;
+	@Bind(R.id.she_yhmc)
+	TextView syhmc;
+	@Bind(R.id.she_zfb)
+	TextView szfb;
+	@Bind(R.id.she_yhzh)
+	TextView syhzh;
+	@Bind(R.id.title_main)
+	TextView title;
+	@Bind(R.id.img_back)
+	ImageView iv_goback;
+	@Bind(R.id.dakuan_layout)
+	LinearLayout dakuan_layout;
 	private Request<String> request;
-private Context context;
-
-
+	private Context context;
 
 	private String extra;
+
 	@OnClick(R.id.img_back)
-	public void goBack(ImageView iv){
-		finish();
+	public void goBack(ImageView iv) {
+		AppManager.getInstance().killActivity(this);
 	}
+
 	@Override
 	public int getLayoutResId() {
 		// TODO Auto-generated method stub
 		return R.layout.activity_she_details;
 	}
+
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void initView() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void initListener() {
-		// TODO Auto-generated method stub
-	AppManager.getInstance().addActivity(this);
-		context =this;
+		AppManager.getInstance().addActivity(this);
+		context = this;
 		ButterKnife.bind(this);
 		Intent intent = getIntent();
 		extra = intent.getStringExtra("sid");
-		queue = NoHttp.newRequestQueue();
-		dakuan_layout.setVisibility(View.GONE);
 	}
+
+	@Override
+	public void initView() {
+		// TODO Auto-generated method stub
+		dakuan_layout.setVisibility(View.GONE);
+		title.setText("收款方信息");
+
+	}
+
+	@Override
+	public void initListener() {
+		// TODO Auto-generated method stub
+	}
+
 	@Override
 	public void initData() {
 		// TODO Auto-generated method stub
-		Map<String,Object> params = new HashMap<String,Object>();
-		params.put("id", extra );
-		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL+MUrlUtil.SHE_DETAILS, params, -1,-1,378);
-		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("id", extra);
+		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.SHE_DETAILS,
+				params, -1, -1, 378);
+
 	}
+
 	@Override
 	public void toStartProgressDialog() {
 		// TODO Auto-generated method stub
 		toStartProgressDialg(true);
-		
+
 	}
+
 	@Override
 	public void doWhatForRequest(int what, String info) {
 		// TODO Auto-generated method stub
 		try {
 			JSONObject jsonObject = new JSONObject(info);
 			String error = jsonObject.getString("error");
-			if("1".equals(error)  &&what==378){
-				
-					Gson gson = new  Gson();
-					SheDetailsBean shebean = gson.fromJson(info, SheDetailsBean.class);
-					Data data = shebean.getData();
-					sid.setText(data.getId());
-					sjb.setText(data.getJb());
-					sue_accname.setText(data.getUe_accname());
-					sue_account.setText(data.getUe_account());
-					sdata.setText(data.getDate());
-//					sweixin.setText(data.getWeixin());
-					syhmc.setText(data.getYhmc());
-					szfb.setText(data.getZfb());
-					syhzh.setText(data.getYhzh());
-					sue_truename.setText(data.getUe_truename());
+			if ("1".equals(error)) {
 
-			}else {
+				Gson gson = new Gson();
+				SheDetailsBean shebean = gson.fromJson(info,
+						SheDetailsBean.class);
+				Data data = shebean.getData();
+				sid.setText(data.getId());
+				sjb.setText(data.getJb());
+				sue_accname.setText(data.getUe_accname());
+				sue_account.setText(data.getUe_account());
+				sdata.setText(data.getDate());
+				// sweixin.setText(data.getWeixin());
+				syhmc.setText(data.getYhmc());
+				szfb.setText(data.getZfb());
+				syhzh.setText(data.getYhzh());
+				sue_truename.setText(data.getUe_truename());
+
+			} else {
 				String msg = jsonObject.getString("msg");
 				ToastUtils.showTextToast(context, msg);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			Logger.e(TAG+e.getMessage());
+			Logger.e(TAG + e.getMessage());
 		}
-		
+
 	}
+
 	@Override
 	public void onDestroy() {
 		// TODO Auto-generated method stub

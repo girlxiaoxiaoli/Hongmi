@@ -68,6 +68,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				ToastUtils.showTextToast(context, "账号密码不能为空");
 				return;
 			}
+			
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("username", username);
 			params.put("password", password);

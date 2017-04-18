@@ -172,12 +172,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ptrSubHeaderTextAppearance=0x7f01000b;
     }
     public static final class color {
-        public static final int blue=0x7f080006;
+        public static final int blue=0x7f080005;
         public static final int colorTheme=0x7f080004;
         public static final int commo_text_color=0x7f080001;
         public static final int green=0x7f080008;
         public static final int green3=0x7f08000b;
-        public static final int grey=0x7f080005;
+        public static final int grey=0x7f080006;
         public static final int grey2=0x7f08000c;
         public static final int griditems_bg=0x7f080000;
         public static final int line=0x7f080002;
@@ -463,7 +463,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int jin_layout=0x7f0500b1;
         public static final int jingli_purse_get=0x7f050016;
         public static final int js_user=0x7f050068;
-        public static final int large_image =0x7f0500f1;
+        public static final int large_image=0x7f0500f1;
         public static final int layout_content=0x7f050091;
         public static final int list_activity=0x7f05002a;
         public static final int ll_accept_help=0x7f050013;

@@ -26,12 +26,12 @@ int attr ptrRotateDrawableWhilePulling 0x7f01000f
 int attr ptrScrollingWhileRefreshingEnabled 0x7f01000d
 int attr ptrShowIndicator 0x7f010005
 int attr ptrSubHeaderTextAppearance 0x7f01000b
-int color blue 0x7f080006
+int color blue 0x7f080005
 int color colorTheme 0x7f080004
 int color commo_text_color 0x7f080001
 int color green 0x7f080008
 int color green3 0x7f08000b
-int color grey 0x7f080005
+int color grey 0x7f080006
 int color grey2 0x7f08000c
 int color griditems_bg 0x7f080000
 int color line 0x7f080002
@@ -288,7 +288,7 @@ int id iv_zuan 0x7f0500b7
 int id jin_layout 0x7f0500b1
 int id jingli_purse_get 0x7f050016
 int id js_user 0x7f050068
-int id large_image  0x7f0500f1
+int id large_image 0x7f0500f1
 int id layout_content 0x7f050091
 int id list_activity 0x7f05002a
 int id ll_accept_help 0x7f050013

@@ -67,8 +67,14 @@ public class ChangeLoginPwdActivity extends BaseActivity {
 				|| TextUtils.isEmpty(xmmqr)) {
 			ToastUtils.showTextToast(ctx, "输入内容不能为空");
 			return;
-		} else if (!xmm.equals(xmmqr)) {
+		} 
+		
+		if (!xmm.equals(xmmqr)) {
 			ToastUtils.showTextToast(ctx, "两次输入的新密码不一样");
+			return;
+		}
+		if(xmm.length()<6){
+			ToastUtils.showTextToast(ctx, "请输入6--12位密码");
 			return;
 		}
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -129,7 +135,7 @@ public class ChangeLoginPwdActivity extends BaseActivity {
 				String msg = jsonObject.getString("msg");
 				ToastUtils.showTextToast(ctx, msg);
 				if ("1".equals(error)) {
-					SpUtils.put(ctx, "USER_NAME", xmm);
+					SpUtils.put(ctx, "PASSWORD", xmm);
 
 					SpUtils.put(context, "IS_LOGIN", false);
 					ReLoginUtil.LoginAgain(ctx, LoginActivity.class);

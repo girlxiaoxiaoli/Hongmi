@@ -188,6 +188,10 @@ public class UserRegistActivity extends BaseActivity {
 			ToastUtils.showTextToast(ctx, "每一项都是必填内容");
 			return;
 		}
+		if(pwd.length()<6){
+			ToastUtils.showTextToast(context, "请输入6--12位登陆密码");
+			return;
+		}
 		if (!"ye".equals(ty)) {
 			ToastUtils.showTextToast(ctx, "确认是否了解所有风险");
 			return;

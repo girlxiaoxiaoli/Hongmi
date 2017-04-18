@@ -18,18 +18,18 @@ public class ConfirmGiveMoneyActivity$$ViewBinder<T extends zz.guojin.hongmi.act
           target.img_back(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131034189, "field 'male'");
-    target.male = finder.castView(view, 2131034189, "field 'male'");
     view = finder.findRequiredView(source, 2131034188, "field 'sex'");
     target.sex = finder.castView(view, 2131034188, "field 'sex'");
+    view = finder.findRequiredView(source, 2131034189, "field 'male'");
+    target.male = finder.castView(view, 2131034189, "field 'male'");
     view = finder.findRequiredView(source, 2131034465, "field 'title'");
     target.title = finder.castView(view, 2131034465, "field 'title'");
   }
 
   @Override public void unbind(T target) {
     target.goback = null;
-    target.male = null;
     target.sex = null;
+    target.male = null;
     target.title = null;
   }
 }
