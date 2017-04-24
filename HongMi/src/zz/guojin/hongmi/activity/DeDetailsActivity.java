@@ -1,78 +1,61 @@
 package zz.guojin.hongmi.activity;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import org.json.JSONObject;
-
 import com.google.gson.Gson;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
 import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.OnResponseListener;
 import com.yolanda.nohttp.rest.Request;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
-
 import zz.guojin.hongmi.bean.SheDetailsBean;
 import zz.guojin.hongmi.bean.SheDetailsBean.Data;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.R;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import android.R.integer;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class DeDetailsActivity extends BaseActivity {
-	@Bind(R.id.de_id)
+public class DeDetailsActivity extends BaseActivity implements OnClickListener{
+	//(R.id.de_id)
 	TextView sid;
-	@Bind(R.id.de_jb)
+	//(R.id.de_jb)
 	TextView sjb;
-	@Bind(R.id.de_phone)
+	
+	//(R.id.de_phone)
 	TextView sphone;
-	@Bind(R.id.de_ue_accname)
+	//(R.id.de_ue_accname)
 	TextView sue_accname;
-	@Bind(R.id.de_ue_account)
+	//(R.id.de_ue_account)
 	TextView sue_account;
-	@Bind(R.id.de_ue_truename)
+	//(R.id.de_ue_truename)
 	TextView sue_truename;
-	@Bind(R.id.de_data)
+	//(R.id.de_data)
 	TextView sdata;
-	@Bind(R.id.de_weixin)
+	//(R.id.de_weixin)
 	TextView sweixin;
-	@Bind(R.id.de_yhmc)
+	//(R.id.de_yhmc)
 	TextView syhmc;
-	@Bind(R.id.title_main)
+	//(R.id.title_main)
 	TextView title;
-	@Bind(R.id.de_zfb)
+	//(R.id.de_zfb)
 	TextView szfb;
-	@Bind(R.id.de_yhzh)
+	//(R.id.de_yhzh)
 	TextView syhzh;
-	// @Bind(R.id.de_ue_phone)TextView sue_phone;
-	@Bind(R.id.img_back)
+	// //(R.id.de_ue_phone)TextView sue_phone;
+	//(R.id.img_back)
 	ImageView img_back;
-	@Bind(R.id.bu_load)
+	//(R.id.bu_load)
 	Button pic_load;
-	@Bind(R.id.shoukuan_layout)
+	//(R.id.shoukuan_layout)
 	LinearLayout dakuan_layout;
 	private String TAG = getClassName();
 	private String load = "Uploads";
@@ -82,7 +65,7 @@ public class DeDetailsActivity extends BaseActivity {
 	ImageView img;
 	private String extra;
 
-	@OnClick({ R.id.bu_load, R.id.img_back })
+	@Override
 	public void onClick(View v) {
 		int id = v.getId();
 		switch (id) {
@@ -127,7 +110,6 @@ public class DeDetailsActivity extends BaseActivity {
 					img.setImageBitmap(null);
 					// b.recycle();
 					dialog.cancel();
-
 				}
 			}
 		});
@@ -143,7 +125,6 @@ public class DeDetailsActivity extends BaseActivity {
 	public void init() {
 		// TODO Auto-generated method stub
 		AppManager.getInstance().addActivity(this);
-		ButterKnife.bind(this);
 		Intent intent = getIntent();
 		extra = intent.getStringExtra("did");
 	}
@@ -151,14 +132,30 @@ public class DeDetailsActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		
+		sid =(TextView)findViewById(R.id.de_id);
+		sjb =(TextView)findViewById(R.id.de_jb);
+		sphone =(TextView)findViewById(R.id.de_phone);
+		sue_accname =(TextView)findViewById(R.id.de_ue_accname);
+		sue_account =(TextView)findViewById(R.id.de_ue_account);
+		sue_truename =(TextView)findViewById(R.id.de_ue_truename);
+		sdata =(TextView)findViewById(R.id.de_data);
+		sweixin =(TextView)findViewById(R.id.de_weixin);
+		syhmc =(TextView)findViewById(R.id.de_yhmc);
+		title =(TextView)findViewById(R.id.title_main);
+		szfb =(TextView)findViewById(R.id.de_zfb);
+		syhzh =(TextView)findViewById(R.id.de_yhzh);
+		img_back =(ImageView)findViewById(R.id.img_back);
+		pic_load =(Button)findViewById(R.id.bu_load);
+		dakuan_layout =(LinearLayout)findViewById(R.id.shoukuan_layout);
 		title.setText("打款方信息");
-
 	}
 
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
-
+       pic_load.setOnClickListener(this);
+       img_back.setOnClickListener(this);
 	}
 
 	@Override
@@ -230,11 +227,6 @@ public class DeDetailsActivity extends BaseActivity {
 
 	}
 
-	@Override
-	public void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-		ButterKnife.unbind(this);
-	}
+
 
 }

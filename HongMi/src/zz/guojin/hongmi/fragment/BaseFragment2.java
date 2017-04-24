@@ -23,7 +23,6 @@ import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.RequestQueue;
 import com.yolanda.nohttp.rest.Response;
 
-import butterknife.ButterKnife;
 import android.R.integer;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -44,7 +43,6 @@ public abstract class BaseFragment2 extends Fragment {
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		rootView = inflater.inflate(getLayoutResId(), container, false);
-		ButterKnife.bind(this, rootView);
 		queue = NoHttp.newRequestQueue();
 		init();
 		initView();
@@ -196,7 +194,6 @@ public void onActivityCreated(Bundle savedInstanceState) {
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		ButterKnife.unbind(this);
 		if (queue != null) {
 			queue.cancelBySign(TAG);
 			queue = null;

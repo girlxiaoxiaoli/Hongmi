@@ -1,6 +1,5 @@
 package zz.guojin.hongmi.activity;
 
-import java.io.Flushable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,39 +7,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
 import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.OnResponseListener;
 import com.yolanda.nohttp.rest.Request;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import zz.guojin.hongmi.bean.RuquestBean;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.JumpUtil;
 import zz.guojin.hongmi.utils.MUrlUtil;
-import zz.guojin.hongmi.utils.NetUtils;
 import zz.guojin.hongmi.utils.ReLoginUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.utils.UiUtils;
 import zz.guojin.hongmi.R;
-import android.R.integer;
-import android.R.raw;
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,24 +33,23 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ActivationCodeActivity extends BaseActivity {
-	@Bind(R.id.img_back)
+public class ActivationCodeActivity extends BaseActivity implements OnClickListener{
+	//(R.id.img_back)
 	ImageView goback;
-	@Bind(R.id.title_main)
+	//(R.id.title_main)
 	TextView title;
-	@Bind(R.id.et_code_account)
+	//(R.id.et_code_account)
 	EditText account;
-	@Bind(R.id.et_user)
+	//(R.id.et_user)
 	EditText user;
-	@Bind(R.id.et_code_second_pwd)
+	//(R.id.et_code_second_pwd)
 	EditText sdpwd;
-	@Bind(R.id.tv_count)
+	//(R.id.tv_count)
 	TextView tv_count;
-	@Bind(R.id.btn_notes)
+	//(R.id.btn_notes)
 	Button btn_notes;
-	@Bind(R.id.btn_ok)
+	//(R.id.btn_ok)
 	Button btn_ok;
-	@Bind(R.id.ll_code_exchange)
 	LinearLayout ll_code_exchange;
 	private Context ctx;
 	private String trim1;// 输入的激活码数量
@@ -76,28 +60,7 @@ public class ActivationCodeActivity extends BaseActivity {
 
 	// gridview激活码管理界面
 
-	// 确认转账
-	@OnClick(R.id.btn_ok)
-	public void btnConfirm(Button btn) {
-		
-		trim1 = account.getText().toString().trim();
-		String trim2 = user.getText().toString().trim();
-		String trim3 = sdpwd.getText().toString().trim();
-		if (TextUtils.isEmpty(trim1) && TextUtils.isEmpty(trim2)
-				&& TextUtils.isEmpty(trim3)) {
-			ToastUtils.showTextToast(ctx, "内容不能为空");
-		}
-		Map<String, Object> params = new HashMap<String, Object>();
-		
-		Request<String> request = NoHttp.createStringRequest(MUrlUtil.BASE_URL
-				+ MUrlUtil.EXCHANGE_URL, RequestMethod.GET);
-		params.put("sh1", trim1);
-		params.put("user1", trim2);
-		params.put("ejmm1", trim3);
-		ToRequestUrl(request, TAG,  MUrlUtil.BASE_URL
-				+ MUrlUtil.EXCHANGE_URL,params, -1, -1, 333);
-	}
-
+	
 
 	private Handler hanlder = new Handler() {
 		public void handleMessage(android.os.Message msg) {
@@ -118,13 +81,7 @@ public class ActivationCodeActivity extends BaseActivity {
 		};
 	};
 
-	// 转账记录
-	@OnClick(R.id.btn_notes)
-	public void getNotes(Button btn) {
-		JumpUtil.JumpActivity(ctx, NotesActivity.class);
-
-	}
-
+	
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		// TODO Auto-generated method stub
@@ -141,11 +98,7 @@ public class ActivationCodeActivity extends BaseActivity {
 		return super.dispatchTouchEvent(ev);
 	}
 
-	// 点击左上角按钮返回上一个页面
-	@OnClick(R.id.img_back)
-	public void goBack() {
-		finish();
-	}
+	
 
 	@Override
 	public int getLayoutResId() {
@@ -164,7 +117,21 @@ public class ActivationCodeActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+
+		goback = (ImageView) findViewById(R.id.img_back);
+		title = (TextView) findViewById(R.id.title_main);
 		title.setText("激活码转让");
+		account = (EditText) findViewById(R.id.et_code_account);
+		user = (EditText) findViewById(R.id.et_user);
+		sdpwd = (EditText) findViewById(R.id.et_user);
+		tv_count = (TextView) findViewById(R.id.tv_count);
+		btn_notes = (Button) findViewById(R.id.btn_notes);
+		btn_ok = (Button) findViewById(R.id.btn_ok);
+		
+		ll_code_exchange = (LinearLayout) findViewById(R.id.ll_code_exchange);
+		btn_ok.setOnClickListener(this);
+		btn_notes.setOnClickListener(this);
+		goback.setOnClickListener(this);
 
 	}
 
@@ -220,5 +187,49 @@ public class ActivationCodeActivity extends BaseActivity {
 				return;
 			}
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		int id = v.getId();
+		switch (id) {
+		case R.id.btn_ok:
+			// 确认转账
+			
+				trim1 = account.getText().toString().trim();
+				String trim2 = user.getText().toString().trim();
+				String trim3 = sdpwd.getText().toString().trim();
+				if (TextUtils.isEmpty(trim1) && TextUtils.isEmpty(trim2)
+						&& TextUtils.isEmpty(trim3)) {
+					ToastUtils.showTextToast(ctx, "内容不能为空");
+				}
+				Map<String, Object> params = new HashMap<String, Object>();
+
+				Request<String> request = NoHttp.createStringRequest(MUrlUtil.BASE_URL
+						+ MUrlUtil.EXCHANGE_URL, RequestMethod.GET);
+				params.put("sh1", trim1);
+				params.put("user1", trim2);
+				params.put("ejmm1", trim3);
+				ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.EXCHANGE_URL,
+						params, -1, -1, 333);
+		
+			
+			break;
+		case R.id.btn_notes:
+			JumpUtil.JumpActivity(ctx, NotesActivity.class);
+
+			break;
+		case R.id.img_back:
+			AppManager.getInstance().killActivity(this);
+
+			break;
+
+		default:
+			break;
+		}
+		
+
+		
 	}
 }

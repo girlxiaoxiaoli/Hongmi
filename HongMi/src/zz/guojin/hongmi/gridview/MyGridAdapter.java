@@ -18,15 +18,11 @@ import android.widget.BaseAdapter;
 public class MyGridAdapter extends BaseAdapter {
 	private Context mContext;
 
-	public String[] img_text = { "打米记录", "收米记录", "激活码", "管理账号", "奖金总额", "实时奖金",
-			"二维码", "解冻记录", "清算本金" };
+	public String[] img_text = { "打米记录", "收米记录", "激活码管理", "管理员账号", "奖金总额", "实时奖金",
+			"二维码", "解冻记录", "会员注册" };
 	public int[] imgs = { R.drawable.item1, R.drawable.item2, 
 			R.drawable.item4,R.drawable.item3, R.drawable.item5, R.drawable.item6,
 			R.drawable.item7, R.drawable.item8, R.drawable.item9 };
-
-	// private int[] bgs = { R.color.blue, R.color.orange, R.color.green,
-	// R.color.red2, R.color.orange2, R.color.green3,
-	// R.color.grey2,R.color.yellow, R.color.pink };
 
 	public MyGridAdapter(Context mContext) {
 		super();

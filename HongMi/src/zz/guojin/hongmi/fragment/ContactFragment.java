@@ -24,8 +24,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-import butterknife.Bind;
-
 
 import com.google.gson.Gson;
 
@@ -39,15 +37,10 @@ public class ContactFragment extends BaseFragment2 implements OnClickListener {
 	// spinner当前显示的条目
 	private String cardString;
 	// private Spinner spinnerCardNumber;
-	@Bind(R.id.spi)
 	Spinner spinnerCardNumber;
-	@Bind(R.id.et_lybt1)
 	EditText lybt1;
-	@Bind(R.id.et_lynr1)
 	EditText lynr1;
-	@Bind(R.id.ll_my_contact)
 	LinearLayout ll_my_contact;
-	@Bind(R.id.but_tij)
 	Button but_tij;
 	private RequestQueue queue;
 	private ProgressDialog pd;
@@ -102,12 +95,10 @@ public class ContactFragment extends BaseFragment2 implements OnClickListener {
 		params.put("lybt", lybt);
 		params.put("lynr", lynr);
 
-		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.TOUCH,
-				params, -1, -1, 300);
+		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.TOUCH, params,
+				-1, -1, 300);
 
 	}
-
-	
 
 	@Override
 	public int getLayoutResId() {
@@ -118,19 +109,27 @@ public class ContactFragment extends BaseFragment2 implements OnClickListener {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		getSpinnerCardNumber();
 	}
 
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
 
+		spinnerCardNumber = (Spinner) rootView.findViewById(R.id.spi);
+
+		lybt1 = (EditText) rootView.findViewById(R.id.et_lybt1);
+		lynr1 = (EditText) rootView.findViewById(R.id.et_lynr1);
+		ll_my_contact = (LinearLayout) rootView
+				.findViewById(R.id.ll_my_contact);
+		but_tij = (Button) rootView.findViewById(R.id.but_tij);
 	}
 
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
 		but_tij.setOnClickListener(this);
+		getSpinnerCardNumber();
+	
 	}
 
 	@Override
@@ -154,7 +153,7 @@ public class ContactFragment extends BaseFragment2 implements OnClickListener {
 			RuquestBean rqt = gson.fromJson(info, RuquestBean.class);
 			ToastUtils.showTextToast(getActivity(), rqt.getMsg());
 			if ("1".equals(rqt.getError())) {
-				
+
 				lybt1.setText("");
 				lynr1.setText("");
 				return;

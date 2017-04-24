@@ -3,7 +3,6 @@ package zz.guojin.hongmi.fragment;
 import zz.guojin.hongmi.activity.ActivationCodeActivity;
 import zz.guojin.hongmi.activity.CheckRegistActivity;
 import zz.guojin.hongmi.activity.FinanceActivity;
-import zz.guojin.hongmi.activity.QiangCodeActivity;
 import zz.guojin.hongmi.utils.JumpUtil;
 import zz.guojin.hongmi.R;
 import android.view.View;
@@ -28,7 +27,7 @@ public class ManagerFragment extends BaseFragment2 implements OnClickListener {
 		case R.id.finace_manager:
 			JumpUtil.JumpActivity(getActivity(), FinanceActivity.class);
 		case R.id.qiang_manager:
-			JumpUtil.JumpActivity(getActivity(), QiangCodeActivity.class);
+//			JumpUtil.JumpActivity(getActivity(), QiangCodeActivity.class);
 
 			break;
 

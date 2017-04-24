@@ -12,7 +12,6 @@ import zz.guojin.hongmi.utils.NetUtils;
 import zz.guojin.hongmi.utils.ReLoginUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.utils.UiUtils;
-import butterknife.ButterKnife;
 
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.NoHttp;
@@ -30,7 +29,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 public abstract class BaseActivity extends Activity {
@@ -44,13 +42,10 @@ public abstract class BaseActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		// getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-		// WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 竖屏
 		setContentView(getLayoutResId());
 		AppManager.getInstance().addActivity(this);
 		context = this;
-		ButterKnife.bind(this);
 		queue = NoHttp.newRequestQueue();
 		init();
 		initView();
@@ -81,7 +76,7 @@ public abstract class BaseActivity extends Activity {
 		}
 		request = NoHttp.createStringRequest(url, RequestMethod.GET);
 		request.setCancelSign(TAG);
-		if (number != -1 || currentIndex != - 1) {
+		if (number != -1 || currentIndex != -1) {
 			request.add("number", number);
 			request.add("start", number * currentIndex);
 		}
@@ -160,19 +155,17 @@ public abstract class BaseActivity extends Activity {
 			JSONObject jsonObject = new JSONObject(jsonInfo);
 			String error = jsonObject.getString("error");
 			if ("0".equals(error)) {
-				
+
 				String msg = jsonObject.getString("msg");
 				ToastUtils.showTextToast(context, msg);
-				Logger.e(getClassName() + "请求错误！！！"+msg);
+				Logger.e(getClassName() + "请求错误！！！" + msg);
 				return;
-				
-			}
-			else if ("1".equals(error)) {
+
+			} else if ("1".equals(error)) {
 				doWhatForRequest(what, jsonInfo);
-			}
-			else if("3".equals(error)){
+			} else if ("3".equals(error)) {
 				String msg = jsonObject.getString("msg");
-				Logger.e(getClassName()+msg);
+				Logger.e(getClassName() + msg);
 				ToastUtils.showTextToast(context, msg);
 				ReLoginUtil.LoginAgain(context, LoginActivity.class);
 			}
@@ -181,13 +174,14 @@ public abstract class BaseActivity extends Activity {
 			// TODO Auto-generated catch block
 			Logger.e(getClassName() + "网络请求" + e.getMessage());
 		}
-       
+
 	}
-public abstract void doWhatForRequest(int what,String info);
+
+	public abstract void doWhatForRequest(int what, String info);
+
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		ButterKnife.unbind(this);
 		if (queue != null) {
 			queue.cancelBySign(TAG);
 			queue = null;

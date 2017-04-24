@@ -14,9 +14,6 @@ import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.RequestQueue;
 import com.yolanda.nohttp.rest.Response;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import zz.guojin.hongmi.bean.SheDetailsBean;
 import zz.guojin.hongmi.bean.SheDetailsBean.Data;
 import zz.guojin.hongmi.utils.AppManager;
@@ -42,40 +39,34 @@ import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 
 public class SheDetailsActivity extends BaseActivity {
-	@Bind(R.id.she_id)
+	//(R.id.she_id)
 	TextView sid;
-	@Bind(R.id.she_jb)
+	//(R.id.she_jb)
 	TextView sjb;
-	@Bind(R.id.she_ue_truename)
+	//(R.id.she_ue_truename)
 	TextView sue_truename;
-	@Bind(R.id.she_ue_accname)
+	//(R.id.she_ue_accname)
 	TextView sue_accname;
-	@Bind(R.id.she_ue_account)
+	//(R.id.she_ue_account)
 	TextView sue_account;
-	@Bind(R.id.she_data)
+	//(R.id.she_data)
 	TextView sdata;
-	// @Bind(R.id.she_weixin)TextView sweixin;
-	@Bind(R.id.she_yhmc)
+	//(R.id.she_yhmc)
 	TextView syhmc;
-	@Bind(R.id.she_zfb)
+	//(R.id.she_zfb)
 	TextView szfb;
-	@Bind(R.id.she_yhzh)
+	//(R.id.she_yhzh)
 	TextView syhzh;
-	@Bind(R.id.title_main)
+	//(R.id.title_main)
 	TextView title;
-	@Bind(R.id.img_back)
+	//(R.id.img_back)
 	ImageView iv_goback;
-	@Bind(R.id.dakuan_layout)
+	//(R.id.dakuan_layout)
 	LinearLayout dakuan_layout;
 	private Request<String> request;
 	private Context context;
 
 	private String extra;
-
-	@OnClick(R.id.img_back)
-	public void goBack(ImageView iv) {
-		AppManager.getInstance().killActivity(this);
-	}
 
 	@Override
 	public int getLayoutResId() {
@@ -88,7 +79,6 @@ public class SheDetailsActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		AppManager.getInstance().addActivity(this);
 		context = this;
-		ButterKnife.bind(this);
 		Intent intent = getIntent();
 		extra = intent.getStringExtra("sid");
 	}
@@ -96,6 +86,18 @@ public class SheDetailsActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		sid =(TextView)findViewById(R.id.she_id);
+		sjb =(TextView)findViewById(R.id.she_jb);
+		sue_truename =(TextView)findViewById(R.id.she_ue_truename);
+		sue_accname =(TextView)findViewById(R.id.she_ue_accname);
+		sue_account =(TextView)findViewById(R.id.she_ue_account);
+		sdata =(TextView)findViewById(R.id.she_data);
+		syhmc =(TextView)findViewById(R.id.she_yhmc);
+		szfb =(TextView)findViewById(R.id.she_zfb);
+		syhzh =(TextView)findViewById(R.id.she_yhzh);
+		title =(TextView)findViewById(R.id.title_main);
+		iv_goback =(ImageView)findViewById(R.id.img_back);
+		dakuan_layout =(LinearLayout)findViewById(R.id.dakuan_layout);
 		dakuan_layout.setVisibility(View.GONE);
 		title.setText("收款方信息");
 
@@ -104,6 +106,14 @@ public class SheDetailsActivity extends BaseActivity {
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
+		iv_goback.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				AppManager.getInstance().killActivity(SheDetailsActivity.this);
+			}
+		});
 	}
 
 	@Override
@@ -161,6 +171,5 @@ public class SheDetailsActivity extends BaseActivity {
 	public void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		ButterKnife.unbind(this);
 	}
 }

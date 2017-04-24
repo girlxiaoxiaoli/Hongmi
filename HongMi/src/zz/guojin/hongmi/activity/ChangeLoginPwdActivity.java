@@ -14,8 +14,6 @@ import com.yolanda.nohttp.rest.OnResponseListener;
 import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.RequestQueue;
 
-import butterknife.Bind;
-import butterknife.OnClick;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ReLoginUtil;
@@ -26,67 +24,33 @@ import zz.guojin.hongmi.R;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ChangeLoginPwdActivity extends BaseActivity {
-	@Bind(R.id.img_back)
+public class ChangeLoginPwdActivity extends BaseActivity implements
+		OnClickListener {
+	// (R.id.img_back)
 	ImageView goback;
-	@Bind(R.id.title_main)
+	// (R.id.title_main)
 	TextView title;
-	@Bind(R.id.et_pwd)
+
+	// (R.id.et_pwd)
 	EditText et_pwd;
-	@Bind(R.id.et_new_pwd)
+	// (R.id.et_new_pwd)
 	EditText et_new_pwd;
-	@Bind(R.id.et_confirm_new_pwd)
+	// (R.id.et_confirm_new_pwd)
 	EditText et_confirm_new_pwd;
-	@Bind(R.id.btn_submit)
+	// (R.id.btn_submit)
 	Button btn;
-	@Bind(R.id.ll_my_login_pwd)
+	// (R.id.ll_my_login_pwd)
 	LinearLayout ll_my_login_pwd;
 	private Context ctx;
 	private Request<String> request;
 	private String xmm;
-
-	// 点击左上角按钮返回上一个页面
-	@OnClick(R.id.img_back)
-	public void goBack() {
-		finish();
-	}
-
-	@OnClick(R.id.btn_submit)
-	public void changLoginPwd(View v) {
-
-		String ymm = et_pwd.getText().toString().trim();
-		xmm = et_new_pwd.getText().toString().trim();
-		String xmmqr = et_confirm_new_pwd.getText().toString().trim();
-		if (TextUtils.isEmpty(ymm) || TextUtils.isEmpty(xmm)
-				|| TextUtils.isEmpty(xmmqr)) {
-			ToastUtils.showTextToast(ctx, "输入内容不能为空");
-			return;
-		} 
-		
-		if (!xmm.equals(xmmqr)) {
-			ToastUtils.showTextToast(ctx, "两次输入的新密码不一样");
-			return;
-		}
-		if(xmm.length()<6){
-			ToastUtils.showTextToast(ctx, "请输入6--12位密码");
-			return;
-		}
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("ymm", ymm);
-		params.put("xmm", xmm);
-		params.put("xmmqr", xmmqr);
-		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL
-				+ MUrlUtil.CHANGE_LOGIN_PWD, params, -1, -1, 119);
-
-	}
-
-
 
 	@Override
 	public int getLayoutResId() {
@@ -104,13 +68,21 @@ public class ChangeLoginPwdActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		goback = (ImageView) findViewById(R.id.img_back);
+		title = (TextView) findViewById(R.id.title_main);
+		et_pwd = (EditText) findViewById(R.id.et_pwd);
+		et_new_pwd = (EditText) findViewById(R.id.et_new_pwd);
+		et_confirm_new_pwd = (EditText) findViewById(R.id.et_confirm_new_pwd);
+		btn = (Button) findViewById(R.id.btn_submit);
+		ll_my_login_pwd = (LinearLayout) findViewById(R.id.ll_my_login_pwd);
 		title.setText("修改登陆密码");
 	}
 
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
-
+		goback.setOnClickListener(this);
+		btn.setOnClickListener(this);
 	}
 
 	@Override
@@ -151,5 +123,45 @@ public class ChangeLoginPwdActivity extends BaseActivity {
 				Logger.e(TAG + e.getMessage());
 			}
 		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		int id = v.getId();
+		switch (id) {
+		case R.id.img_back:
+			AppManager.getInstance().killActivity(this);
+			break;
+		case R.id.btn_submit:
+			String ymm = et_pwd.getText().toString().trim();
+			xmm = et_new_pwd.getText().toString().trim();
+			String xmmqr = et_confirm_new_pwd.getText().toString().trim();
+			if (TextUtils.isEmpty(ymm) || TextUtils.isEmpty(xmm)
+					|| TextUtils.isEmpty(xmmqr)) {
+				ToastUtils.showTextToast(ctx, "输入内容不能为空");
+				return;
+			}
+
+			if (!xmm.equals(xmmqr)) {
+				ToastUtils.showTextToast(ctx, "两次输入的新密码不一样");
+				return;
+			}
+			if (xmm.length() < 6) {
+				ToastUtils.showTextToast(ctx, "请输入6--12位密码");
+				return;
+			}
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("ymm", ymm);
+			params.put("xmm", xmm);
+			params.put("xmmqr", xmmqr);
+			ToRequestUrl(request, TAG, MUrlUtil.BASE_URL
+					+ MUrlUtil.CHANGE_LOGIN_PWD, params, -1, -1, 119);
+
+			break;
+		default:
+			break;
+		}
+
 	}
 }

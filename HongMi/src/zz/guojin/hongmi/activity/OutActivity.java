@@ -7,8 +7,6 @@ import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.RequestQueue;
 import com.yolanda.nohttp.rest.Response;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import zz.guojin.hongmi.bean.RuquestBean;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.MUrlUtil;
@@ -30,8 +28,10 @@ public class OutActivity extends Activity implements OnClickListener {
 	//spinner当前显示的条目
 	private int codePointAt;
 	private String cardString;
-	@Bind(R.id.spi)Spinner spinnerst;
-	@Bind(R.id.et_lynr1)EditText ed;
+//	@Bind(R.id.spi)
+	Spinner spinnerst;
+//	@Bind(R.id.et_lynr1)
+	EditText ed;
 	Button qunren;
 	private RequestQueue queue;
 
@@ -42,7 +42,8 @@ public class OutActivity extends Activity implements OnClickListener {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		AppManager.getInstance().addActivity(this);
 		setContentView(R.layout.outfragment);
-		ButterKnife.bind(this);
+		spinnerst =(Spinner)findViewById(R.id.spi);
+		ed =(EditText)findViewById(R.id.et_lynr1);
 		qunren =(Button) findViewById(R.id.but_qunr);
 		qunren.setOnClickListener(this);
 		queue = NoHttp.newRequestQueue();

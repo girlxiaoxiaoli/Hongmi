@@ -7,10 +7,6 @@ import com.google.gson.Gson;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.rest.Request;
 
-
-import butterknife.Bind;
-
-import butterknife.OnClick;
 import zz.guojin.hongmi.bean.RuquestBean;
 import zz.guojin.hongmi.bean.VipShowBean;
 import zz.guojin.hongmi.utils.AppManager;
@@ -20,10 +16,12 @@ import zz.guojin.hongmi.utils.ReLoginUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.utils.UiUtils;
 import zz.guojin.hongmi.R;
+import android.R.integer;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -33,36 +31,37 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MemberreRegistActivity extends BaseActivity {
-	@Bind(R.id.img_back)
+public class MemberreRegistActivity extends BaseActivity implements
+		OnClickListener {
+	// (R.id.img_back)
 	ImageView goback;
-	@Bind(R.id.title_main)
+	// (R.id.title_main)
 	TextView titleTextView;
-	@Bind(R.id.et_shouj)
+	// (R.id.et_shouj)
 	EditText shouj;
-	@Bind(R.id.et_pswd)
+	// (R.id.et_pswd)
 	EditText pswd;
-	@Bind(R.id.et_qrpswd)
+	// (R.id.et_qrpswd)
 	EditText qrpswd;
-	@Bind(R.id.et_erpswd)
+	// (R.id.et_erpswd)
 	EditText erpswd;
-	@Bind(R.id.et_qrerpswd)
+	// (R.id.et_qrerpswd)
 	EditText qrerpswd;
-	@Bind(R.id.et_jies_elim)
+	// (R.id.et_jies_elim)
 	EditText jies_elim;
-	@Bind(R.id.et_jies_sj)
+	// (R.id.et_jies_sj)
 	EditText jies_sj;
-	@Bind(R.id.cb_toyi)
+	// (R.id.cb_toyi)
 	CheckBox tyl;
-	@Bind(R.id.et_name1)
+	// (R.id.et_name1)
 	EditText name1;
-	@Bind(R.id.but_zhuce)
+	// (R.id.but_zhuce)
 	Button zhuce;
-	@Bind(R.id.ll_regist)
+	// (R.id.ll_regist)
 	LinearLayout ll_regist;
-	@Bind(R.id.et_sms_code)
+	// (R.id.et_sms_code)
 	EditText et_sms_code;
-	@Bind(R.id.btn_sms)
+	// (R.id.btn_sms)
 	Button btn_sms;
 	// Button zhuce;
 	String ty;
@@ -71,7 +70,6 @@ public class MemberreRegistActivity extends BaseActivity {
 	private Context ctx;
 	Request<String> request;
 
-	
 	private void SetView() {
 		// TODO Auto-generated method stub
 		tyl.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
@@ -88,76 +86,72 @@ public class MemberreRegistActivity extends BaseActivity {
 		});
 	}
 
-	// 短信验证
-	@OnClick(R.id.btn_sms)
-	public void smsConfig(Button btn) {
-		
-		String mphone = shouj.getText().toString().trim();
-		Logger.i(mphone+"----");
-		Map<String,Object> params = new HashMap<String, Object>();
-		params.put("user", mphone);
-		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.SMS_PWD, params,-1,-1,599);
-		
-		
-	
-	}
-
-	
-
-	@OnClick(R.id.but_zhuce)
+	@Override
 	public void onClick(View v) {
-		
-		// 真实姓名
-		// String username = name.getText().toString().trim();
-		String phone = shouj.getText().toString().trim();// 手机号
-		// String user = uname.getText().toString().trim();
-		String password = pswd.getText().toString().trim();
-		String qrpassword = qrpswd.getText().toString().trim();
-		String ejmm = erpswd.getText().toString().trim();
-		String qrejmm = qrerpswd.getText().toString().trim();
-		// String email = elim.getText().toString().trim();
-		String truen = name1.getText().toString().trim();
-		// 短信验证码
-		String smsnum = et_sms_code.getText().toString().trim();
-		if (TextUtils.isEmpty(smsnum)) {
-			ToastUtils.showTextToast(ctx, "请输入验证码");
-			return;
-		}
-		if (!password.equals(qrpassword)) {
-			ToastUtils.showTextToast(ctx, "确认两次密码输入一致");
-			return;
-		}
-		if (!ejmm.equals(qrejmm)) {
-			ToastUtils.showTextToast(ctx, "确认两次密码输入一致");
-			return;
-		}
-		if (!"ye".equals(ty)) {
-			ToastUtils.showTextToast(ctx, "确认是否了解所有风险");
-			return;
-		}
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("user", phone);
-		// request.add("user", user);
-		params.put("password", password);
-		params.put("secped", ejmm);
-		// request.add("email", email);
-		params.put("ty", ty);
-		params.put("code", code);
-		params.put("truen", truen);
-		params.put("pemail", pemail);
-		params.put("smsnum", smsnum);
-		ToRequestUrl(request, TAG, MUrlUtil.BASE_URL
-				+ MUrlUtil.VIP_URL, params, -1, -1, 112);
-	
-		
-	}
+		int id = v.getId();
+		switch (id) {
+		case R.id.but_zhuce:
+			// 真实姓名
+			// String username = name.getText().toString().trim();
+			String phone = shouj.getText().toString().trim();// 手机号
+			// String user = uname.getText().toString().trim();
+			String password = pswd.getText().toString().trim();
+			String qrpassword = qrpswd.getText().toString().trim();
+			String ejmm = erpswd.getText().toString().trim();
+			String qrejmm = qrerpswd.getText().toString().trim();
+			// String email = elim.getText().toString().trim();
+			String truen = name1.getText().toString().trim();
+			// 短信验证码
+			String smsnum = et_sms_code.getText().toString().trim();
+			if (TextUtils.isEmpty(smsnum)) {
+				ToastUtils.showTextToast(ctx, "请输入验证码");
+				return;
+			}
+			if (!password.equals(qrpassword)) {
+				ToastUtils.showTextToast(ctx, "确认两次密码输入一致");
+				return;
+			}
+			if (!ejmm.equals(qrejmm)) {
+				ToastUtils.showTextToast(ctx, "确认两次密码输入一致");
+				return;
+			}
+			if (!"ye".equals(ty)) {
+				ToastUtils.showTextToast(ctx, "确认是否了解所有风险");
+				return;
+			}
+			Map<String, Object> params = new HashMap<String, Object>();
+			params.put("user", phone);
+			// request.add("user", user);
+			params.put("password", password);
+			params.put("secped", ejmm);
+			// request.add("email", email);
+			params.put("ty", ty);
+			params.put("code", code);
+			params.put("truen", truen);
+			params.put("pemail", pemail);
+			params.put("smsnum", smsnum);
+			ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.VIP_URL,
+					params, -1, -1, 112);
 
-	
+			break;
+		case R.id.btn_sms:
 
-	// 点击左上角按钮返回上一个页面
-	@OnClick(R.id.img_back)
-	public void goBack() {
-		finish();
+			String mphone = shouj.getText().toString().trim();
+			Logger.i(mphone + "----");
+			Map<String, Object> params1 = new HashMap<String, Object>();
+			params1.put("user", mphone);
+			ToRequestUrl(request, TAG, MUrlUtil.BASE_URL + MUrlUtil.SMS_PWD,
+					params1, -1, -1, 599);
+
+			break;
+		case R.id.img_back:
+			AppManager.getInstance().killActivity(this);
+			break;
+
+		default:
+			break;
+		}
+
 	}
 
 	@Override
@@ -192,12 +186,30 @@ public class MemberreRegistActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		goback = (ImageView) findViewById(R.id.img_back);
+		titleTextView = (TextView) findViewById(R.id.title_main);
+		shouj = (EditText) findViewById(R.id.et_shouj);
+		pswd = (EditText) findViewById(R.id.et_pswd);
+		qrpswd = (EditText) findViewById(R.id.et_qrpswd);
+		erpswd = (EditText) findViewById(R.id.et_erpswd);
+		qrerpswd = (EditText) findViewById(R.id.et_qrerpswd);
+		jies_elim = (EditText) findViewById(R.id.et_jies_elim);
+		jies_sj = (EditText) findViewById(R.id.et_jies_sj);
+		tyl = (CheckBox) findViewById(R.id.cb_toyi);
+		name1 = (EditText) findViewById(R.id.et_name1);
+		zhuce = (Button) findViewById(R.id.but_zhuce);
+		ll_regist = (LinearLayout) findViewById(R.id.ll_regist);
+		et_sms_code = (EditText) findViewById(R.id.et_sms_code);
+		btn_sms = (Button) findViewById(R.id.btn_sms);
 		titleTextView.setText("注册会员");
 	}
 
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
+		goback.setOnClickListener(this);
+		btn_sms.setOnClickListener(this);
+		zhuce.setOnClickListener(this);
 		SetView();
 	}
 
@@ -219,22 +231,20 @@ public class MemberreRegistActivity extends BaseActivity {
 	public void doWhatForRequest(int what, String info) {
 		// TODO Auto-generated method stub
 		Gson gson = new Gson();
-		if(what==599){
-			RuquestBean smsBean = gson
-					.fromJson(info, RuquestBean.class);
+		if (what == 599) {
+			RuquestBean smsBean = gson.fromJson(info, RuquestBean.class);
 			if ("1".equals(smsBean.getError())) {
 				ToastUtils.showTextToast(ctx, smsBean.getMsg());
-				MyCountDownTimer mdt = new MyCountDownTimer(btn_sms,
-						120000, 1000);
+				MyCountDownTimer mdt = new MyCountDownTimer(btn_sms, 120000,
+						1000,0);
 				mdt.start();
 				return;
 			} else {
 				ToastUtils.showTextToast(ctx, smsBean.getMsg());
 				return;
 			}
-		}else if(what == 112) {
-			
-			
+		} else if (what == 112) {
+
 			RuquestBean ru = gson.fromJson(info, RuquestBean.class);
 			if ("1".equals(ru.getError())) {
 				ToastUtils.showTextToast(ctx, ru.getMsg());
@@ -248,8 +258,8 @@ public class MemberreRegistActivity extends BaseActivity {
 				return;
 			}
 
-		}else{
-			
+		} else {
+
 			VipShowBean vs = gson.fromJson(info, VipShowBean.class);
 			// 激活码
 			code = vs.getData().getPin();

@@ -24,42 +24,33 @@ import android.os.Message;
 import android.text.Html;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-public class GoodsInfoActivity extends Activity {
+public class GoodsInfoActivity extends Activity implements OnClickListener{
 
 	private String TAG = "GoodsInfoActivity";
-	@Bind(R.id.tv_go_back)
+	//(R.id.tv_go_back)
 	TextView tvGoback;
-	@Bind(R.id.img_goods)
+	//(R.id.img_goods)
 	ImageView imgGoods;
-	@Bind(R.id.info_goods)
+	//(R.id.info_goods)
 	TextView infoGoods;
-	@Bind(R.id.tv_sub)
+	//(R.id.tv_sub)
 	TextView tvSub;
-	@Bind(R.id.et_number)
+	//(R.id.et_number)
 	TextView etNumber;
-	@Bind(R.id.tv_counts)
+	//(R.id.tv_counts)
 	TextView tvCount;
-	@Bind(R.id.tv_price)
+	//(R.id.tv_price)
 	TextView tvPrice;
-//	@Bind(R.id.name)
-//	EditText name;
-//	@Bind(R.id.phone)
-//	EditText phone;
-
-	@Bind(R.id.btn_pay)
+	//(R.id.btn_pay)
 	Button btnPay;
-
-	@Bind(R.id.address)
+	//(R.id.address)
 	EditText et_address;
 	Bitmap bitmap;
 	public static String price;
@@ -82,9 +73,27 @@ public class GoodsInfoActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_goods_info);
 		AppManager.getInstance().addActivity(this);
-		ButterKnife.bind(this);
+		initView();
 		requestQueue1 = NoHttp.newRequestQueue();
 		initData();
+	}
+
+	private void initView() {
+		// TODO Auto-generated method stub
+		tvGoback =(TextView)findViewById(R.id.tv_go_back);
+		imgGoods =(ImageView)findViewById(R.id.img_goods);
+		infoGoods =(TextView)findViewById(R.id.info_goods);
+		tvSub =(TextView)findViewById(R.id.tv_sub);
+		etNumber =(TextView)findViewById(R.id.et_number);
+		tvCount =(TextView)findViewById(R.id.tv_counts);
+		tvPrice =(TextView)findViewById(R.id.tv_price);
+		btnPay =(Button)findViewById(R.id.btn_pay);
+		et_address =(EditText)findViewById(R.id.address);
+         tvGoback.setOnClickListener(this);
+         tvSub.setOnClickListener(this);
+         tvCount.setOnClickListener(this);
+         btnPay.setOnClickListener(this);
+		
 	}
 
 	private void initData() {
@@ -98,7 +107,7 @@ public class GoodsInfoActivity extends Activity {
 	}
 
 
-	@OnClick({ R.id.tv_go_back, R.id.tv_sub, R.id.tv_counts, R.id.btn_pay })
+	@Override
 	public void onClick(View view) {
 		Message message = mHandler.obtainMessage();
 		message.what = 0;

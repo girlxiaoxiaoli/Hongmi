@@ -6,8 +6,6 @@ import org.json.JSONObject;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.Response;
-
-import butterknife.Bind;
 import zz.guojin.hongmi.activity.ChangeLoginPwdActivity;
 import zz.guojin.hongmi.activity.ChangeSecondPwdActivity;
 import zz.guojin.hongmi.activity.CheckRegistActivity;
@@ -31,17 +29,17 @@ import android.widget.TextView;
 
 public class PersonalFragment extends BaseFragment2 implements OnClickListener {
 
-	@Bind(R.id.ll_personal_data)
+	//(R.id.ll_personal_data)
 	LinearLayout ll_personal_data;
-	@Bind(R.id.ll_chang_login_pwd)
+	//(R.id.ll_chang_login_pwd)
 	LinearLayout ll_chang_login_pwd;
-	@Bind(R.id.ll_chang_second_pwd)
+	//(R.id.ll_chang_second_pwd)
 	LinearLayout ll_chang_second_pwd;
-	@Bind(R.id.ll_reply)
+	//(R.id.ll_reply)
 	LinearLayout ll_reply;
-	@Bind(R.id.ll_user_group)
+	//(R.id.ll_user_group)
 	LinearLayout ll_user_group;
-	@Bind(R.id.ll_tuijian_list)
+	//(R.id.ll_tuijian_list)
 	LinearLayout ll_tuijian_list;
 
 	Request<String> request;
@@ -90,7 +88,12 @@ public class PersonalFragment extends BaseFragment2 implements OnClickListener {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
-
+		ll_personal_data=(LinearLayout)rootView.findViewById(R.id.ll_personal_data);
+		ll_chang_login_pwd=(LinearLayout)rootView.findViewById(R.id.ll_chang_login_pwd);
+		ll_chang_second_pwd=(LinearLayout)rootView.findViewById(R.id.ll_chang_second_pwd);
+		ll_reply=(LinearLayout)rootView.findViewById(R.id.ll_reply);
+		ll_user_group=(LinearLayout)rootView.findViewById(R.id.ll_user_group);
+		ll_tuijian_list=(LinearLayout)rootView.findViewById(R.id.ll_tuijian_list);
 	}
 
 	@Override

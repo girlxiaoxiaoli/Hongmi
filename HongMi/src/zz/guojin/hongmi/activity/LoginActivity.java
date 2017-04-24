@@ -3,21 +3,15 @@ package zz.guojin.hongmi.activity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.json.JSONObject;
-
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.JumpUtil;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.SpUtils;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.R;
-import butterknife.Bind;
-import butterknife.OnClick;
-
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.rest.Request;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
@@ -29,19 +23,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
-	@Bind(R.id.img_back)
+	// (R.id.img_back)
 	ImageView goback;
-	@Bind(R.id.title_main)
+	// (R.id.title_main)
 	TextView title;
-	@Bind(R.id.et_user)
+	// (R.id.et_user)
 	EditText et_user;
-	@Bind(R.id.et_pwd)
+	// (R.id.et_pwd)
 	EditText et_pwd;
-	@Bind(R.id.bt_login)
+	// (R.id.bt_login)
 	Button login;
-	@Bind(R.id.tv_forget)
+	// (R.id.tv_forget)
 	TextView forget;
-	@Bind(R.id.zhucehy)
+	// (R.id.zhucehy)
 	TextView zc;
 
 	private static final int LOGINSUCCESS = 101;
@@ -52,7 +46,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	private Context context;
 
 	// 忘记密码
-	@OnClick({ R.id.tv_forget, R.id.zhucehy, R.id.bt_login, R.id.img_back })
+	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
 		case R.id.tv_forget:
@@ -68,7 +62,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				ToastUtils.showTextToast(context, "账号密码不能为空");
 				return;
 			}
-			
+
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("username", username);
 			params.put("password", password);
@@ -83,8 +77,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 
 	}
-
-
 
 	@Override
 	public int getLayoutResId() {
@@ -101,6 +93,14 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		goback = (ImageView) findViewById(R.id.img_back);
+		title = (TextView) findViewById(R.id.title_main);
+		et_user = (EditText) findViewById(R.id.et_user);
+		et_pwd = (EditText) findViewById(R.id.et_pwd);
+		login = (Button) findViewById(R.id.bt_login);
+		forget = (TextView) findViewById(R.id.tv_forget);
+		zc = (TextView) findViewById(R.id.zhucehy);
+
 		goback.setVisibility(View.GONE);
 		title.setText("登陆");
 	}
@@ -108,6 +108,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
+		forget.setOnClickListener(this);
+		zc.setOnClickListener(this);
+		login.setOnClickListener(this);
+		goback.setOnClickListener(this);
 
 	}
 
@@ -136,7 +140,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void doWhatForRequest(int what, String info) {
 		// TODO Auto-generated method stub
 		if (what == LOGINSUCCESS) {
-			
+
 			try {
 				JSONObject jsonObject = new JSONObject(info);
 				String error = jsonObject.getString("error");

@@ -7,38 +7,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.yolanda.nohttp.Logger;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.OnResponseListener;
 import com.yolanda.nohttp.rest.Request;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import zz.guojin.hongmi.adapter.CommonAdapter;
 import zz.guojin.hongmi.adapter.MyOutAdapter;
 import zz.guojin.hongmi.adapter.ViewHodler;
 import zz.guojin.hongmi.bean.AcceptHelpGroupBean;
-import zz.guojin.hongmi.bean.MarryBean;
 import zz.guojin.hongmi.bean.AcceptHelpGroupBean.DataBean;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.view.XListView;
-import zz.guojin.hongmi.view.XListView.IXListViewListener;
 import zz.guojin.hongmi.R;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+
 
 public class AcceptGroupFragment extends BaseListFragment {
 

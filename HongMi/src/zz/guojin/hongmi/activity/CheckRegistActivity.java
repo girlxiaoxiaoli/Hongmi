@@ -6,42 +6,20 @@ import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.google.gson.Gson;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.OnResponseListener;
 import com.yolanda.nohttp.rest.Request;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import zz.guojin.hongmi.adapter.MyOutAdapter;
 import zz.guojin.hongmi.adapter.ViewHodler;
 import zz.guojin.hongmi.bean.PassBean;
-import zz.guojin.hongmi.bean.RuquestBean;
 import zz.guojin.hongmi.bean.PassBean.Passed;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.view.XListView;
 import zz.guojin.hongmi.R;
-import android.R.integer;
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 public class CheckRegistActivity extends BaseListActivity {
 
@@ -92,6 +70,14 @@ public class CheckRegistActivity extends BaseListActivity {
 						.getUe_regtime());
 				hodler.setText(R.id.tv_caoz, passed.get(position)
 						.getUe_truename());
+				hodler.setText(R.id.tv_status, passed.get(position)
+						.getUe_status());
+				if("已激活".equals(passed.get(position).getUe_status())){
+					hodler.setViewVisibility(R.id.tv_shq, false);
+				}else{
+					hodler.setViewVisibility(R.id.tv_shq, true);
+
+				}
 				hodler.setViewOnClickListener(R.id.tv_shq,
 						new OnClickListener() {
 

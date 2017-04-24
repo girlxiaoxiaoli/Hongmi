@@ -62,10 +62,10 @@ public class AdministratorAccount extends BaseActivity implements OnClickListene
 	public void initData() {
 		// TODO Auto-generated method stub
 		webView.loadUrl(MUrlUtil.BASE_URL+MUrlUtil.ADMIN_ACCOUNT);
-//		webView.loadUrl("http://192.168.1.2:8090/");
+
 		WebSettings webSettings = webView.getSettings();
 		webSettings.setJavaScriptEnabled(true);//支持js
-		webSettings.setSupportZoom(false);//不支持缩放
+		webSettings.setSupportZoom(true);//不支持缩放
 		
 	}
 

@@ -37,6 +37,14 @@ public class PassBean {
 		String ue_phone;
 		String ue_regtime;
 		String ue_truename;
+		String ue_status;
+		
+		public String getUe_status() {
+			return ue_status;
+		}
+		public void setUe_status(String ue_status) {
+			this.ue_status = ue_status;
+		}
 		public String getUe_account() {
 			return ue_account;
 		}
@@ -72,8 +80,10 @@ public class PassBean {
 		public String toString() {
 			return "Passed [ue_account=" + ue_account + ", ue_id=" + ue_id
 					+ ", ue_phone=" + ue_phone + ", ue_regtime=" + ue_regtime
-					+ ", ue_truename=" + ue_truename + "]";
+					+ ", ue_truename=" + ue_truename + ", ue_status="
+					+ ue_status + "]";
 		}
+		
 		
 
 		

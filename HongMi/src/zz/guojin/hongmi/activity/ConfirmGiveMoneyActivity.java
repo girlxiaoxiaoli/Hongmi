@@ -14,9 +14,6 @@ import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.RequestQueue;
 import com.yolanda.nohttp.rest.Response;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import zz.guojin.hongmi.bean.RuquestBean;
 import zz.guojin.hongmi.uppictures.RequestUrl;
 import zz.guojin.hongmi.uppictures.UploadFileUtil;
@@ -62,20 +59,21 @@ public class ConfirmGiveMoneyActivity extends Activity implements OnClickListene
 	private FileBinary binary;
 	File outFile = null;
 	final Map<String, String> params_image = new HashMap<String, String>();
-	@Bind(R.id.sex)RadioGroup sex;
-	@Bind(R.id.rb_male)RadioButton male;
+	//(R.id.sex)
+	RadioGroup sex;
+	//(R.id.rb_male)
+	RadioButton male;
 	Button refer;
 	int temp;
 	private RequestQueue queue;
 	private String extra;
 	private Context ctx;
 	ProgressDialog pd;
-	@Bind(R.id.img_back) ImageView goback;
-	@Bind(R.id.title_main) TextView title;
-	 @OnClick(R.id.img_back)
-	   public void img_back(View view){
-		   finish();
-	   }
+	//(R.id.img_back) 
+	ImageView goback;
+	//(R.id.title_main) 
+	TextView title;
+	
 	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +82,8 @@ public class ConfirmGiveMoneyActivity extends Activity implements OnClickListene
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		AppManager.getInstance().addActivity(this);
 		setContentView(R.layout.activity_confirm);
-		ButterKnife.bind(this);
 		ctx = this;
-		imageView1 = (ImageView) findViewById(R.id.imageView1);
+		initView();
 	
 		title.setText("确认打款");
 		refer =(Button) findViewById(R.id.refer);
@@ -110,6 +107,23 @@ public class ConfirmGiveMoneyActivity extends Activity implements OnClickListene
 	extra = intent.getStringExtra("sid");
 	
 	}
+	private void initView() {
+		// TODO Auto-generated method stub
+		imageView1 = (ImageView) findViewById(R.id.imageView1);
+		sex = (RadioGroup)findViewById(R.id.sex);
+		male= (RadioButton)findViewById(R.id.rb_male);
+		goback= (ImageView)findViewById(R.id.img_back);
+		title= (TextView)findViewById(R.id.title_main);
+		goback.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				AppManager.getInstance().killActivity(ConfirmGiveMoneyActivity.this);
+			}
+		});
+	}
+
 	/**
 	 * 拍照按钮，点击事件
 	 * 

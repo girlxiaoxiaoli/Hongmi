@@ -75,7 +75,7 @@ public class MainActivity extends FragmentActivity {
 				case R.id.rb_news:
 					index = 1;
 					titleBar.setVisibility(View.VISIBLE);
-					titleTextView.setText("管理");
+					titleTextView.setText("公告");
 					break;
 				case R.id.rb_contact:
 					index = 2;

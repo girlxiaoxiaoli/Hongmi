@@ -5,10 +5,11 @@
     <color name="commo_text_color">#ff333333</color>
     <color name="line">#ffd3dde6</color>
     <color name="white">#ffffff</color>
-<color name="colorTheme">#e96944</color> 
-    <color name="blue">#008cee</color>
+    <color name="colorTheme">#e96944</color>
+    <color name="blue1">#3BDBFC</color>
+    <!-- <color name="blue">#008cee</color> -->
     <color name="grey">#88cccccc</color>
-    
+    <color name="red">#ff0000</color>
     <color name="blue">#3579f4</color>
     <color name="orange">#d4762c</color>
     <color name="green">#8fbe3a</color>

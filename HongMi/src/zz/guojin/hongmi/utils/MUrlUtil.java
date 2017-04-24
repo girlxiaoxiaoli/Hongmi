@@ -4,7 +4,7 @@ package zz.guojin.hongmi.utils;
  * URL
  */
 public class MUrlUtil {
-	// www.jinyuejinrong68.com
+	// hm.guojin123.net
 	public static final String BASE_URL = "http://hm.guojin123.net/";
 	// 测试登录URL
 	public static final String LOGIN_URL = "app/login/login";

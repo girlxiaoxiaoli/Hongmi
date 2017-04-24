@@ -1,10 +1,6 @@
 package zz.guojin.hongmi.activity;
 
 import java.util.ArrayList;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import zz.guojin.hongmi.fragment.GivePaiDanMessFragment;
 import zz.guojin.hongmi.fragment.GivePiPeiMessFragment;
 import zz.guojin.hongmi.utils.AppManager;

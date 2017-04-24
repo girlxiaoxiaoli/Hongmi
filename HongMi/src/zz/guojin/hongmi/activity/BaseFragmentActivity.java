@@ -5,36 +5,35 @@ import java.util.ArrayList;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.R;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 public abstract class BaseFragmentActivity extends FragmentActivity {
 	// 得订单交易
-	@Bind(R.id.img_back)
+	//(R.id.img_back)
 	ImageView goback;
-	@Bind(R.id.title_main)
+	//(R.id.title_main)
 	TextView title;
-	@Bind(R.id.radio_group)
+	//(R.id.radio_group)
 	RadioGroup radioGroup;
-	@Bind(R.id.radio1)
+	//(R.id.radio1)
 	RadioButton radio1;
-	@Bind(R.id.radio2)
+	//(R.id.radio2)
 	RadioButton radio2;
-	@Bind(R.id.radio3)
+	//(R.id.radio3)
 	RadioButton radio3;
-	@Bind(R.id.container)
+	//(R.id.container)
 	FrameLayout frameLayout;
 
 	protected ArrayList<Fragment> fragments;
@@ -46,7 +45,43 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		AppManager.getInstance().addActivity(this);
 		setContentView(R.layout.activity_base_frag);
-		ButterKnife.bind(this);
+		goback = (ImageView)findViewById(R.id.img_back);
+		title=(TextView)findViewById(R.id.title_main);
+		radioGroup=(RadioGroup)findViewById(R.id.radio_group);
+		radio1 =(RadioButton)findViewById(R.id.radio1);
+		radio2=(RadioButton)findViewById(R.id.radio2);
+		radio3=(RadioButton)findViewById(R.id.radio3);
+		frameLayout = (FrameLayout)findViewById(R.id.container);
+		goback.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				AppManager.getInstance().killActivity(BaseFragmentActivity.this);
+				
+			}
+		});
+		radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				// TODO Auto-generated method stub
+				checkedId = group.getCheckedRadioButtonId();
+				switch (checkedId) {
+				case R.id.radio1:
+					switchFragments(fragments.get(0));
+					break;
+				case R.id.radio2:
+					switchFragments(fragments.get(1));
+					break;
+				case R.id.radio3:
+					switchFragments(fragments.get(2));
+					break;
+				default:
+					break;
+				}
+			}
+		});
 		initView();
 		fragments = new ArrayList<Fragment>();
 
@@ -79,22 +114,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 		radio3.setText(text3);
 	}
 
-	@OnClick({ R.id.radio1, R.id.radio2, R.id.radio3 })
-	public void onClick(View view) {
-		switch (view.getId()) {
-		case R.id.radio1:
-			switchFragments(fragments.get(0));
-			break;
-		case R.id.radio2:
-			switchFragments(fragments.get(1));
-			break;
-		case R.id.radio3:
-			switchFragments(fragments.get(2));
-			break;
-		default:
-			break;
-		}
-	}
+	
 
 	private void switchFragments(Fragment fragment) {
 
@@ -117,17 +137,12 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 
 	}
 
-	// 点击左上角按钮返回上一个页面
-	@OnClick(R.id.img_back)
-	public void goBack() {
-		finish();
-	}
+
 	
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
-		ButterKnife.unbind(this);
 		
 	}
 

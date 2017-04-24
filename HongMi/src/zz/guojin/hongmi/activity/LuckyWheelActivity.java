@@ -7,53 +7,50 @@ import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.JumpUtil;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
-
-import com.google.gson.Gson;
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.rest.Request;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+
 
 /**
  * Created by Administrator on 2016/10/17. 大转盘界面
  */
 
-public class LuckyWheelActivity extends BaseActivity {
-	@Bind(R.id.lucky_wheel)
+public class LuckyWheelActivity extends BaseActivity implements OnClickListener{
+	//(R.id.lucky_wheel)
 	LinearLayout layout;
-	@Bind(R.id.img_back)
+	//(R.id.img_back)
 	ImageView ivGoback;
-	@Bind(R.id.title_main)
+	//(R.id.title_main)
 	TextView title;
-	@Bind(R.id.title_second)
+	//(R.id.title_second)
 	TextView title_second;
-	@Bind(R.id.pan_wheel)
+	//(R.id.pan_wheel)
 	ImageView panWheel;
-	@Bind(R.id.btn_click)
+	//(R.id.btn_click)
 	ImageView btnClick;
-	@Bind(R.id.first_award)
+	//(R.id.first_award)
 	TextView firstAward;
-	@Bind(R.id.second_award)
+	//(R.id.second_award)
 	TextView secondAward;
-	@Bind(R.id.third_award)
+	//(R.id.third_award)
 	TextView thirdAward;
-	@Bind(R.id.fourth_award)
+	//(R.id.fourth_award)
 	TextView fourthAward;
-	@Bind(R.id.fifth_award)
+	//(R.id.fifth_award)
 	TextView fifthAward;
-	@Bind(R.id.sixth_award)
+	//(R.id.sixth_award)
 	TextView sixthAward;
-	@Bind(R.id.seven_award)
+	//(R.id.seven_award)
 	TextView sevenAward;
 	Request<String> request;
 	
@@ -77,16 +74,9 @@ public class LuckyWheelActivity extends BaseActivity {
 
 	}
 
-	// 点击抽奖
-	@OnClick(R.id.btn_click)
-	public void startWheel() {
-       IsStartTurn = true;
-		getNetData();// 网络访问
-
-	}
-
-	@OnClick({R.id.img_back,R.id.title_second})
-	public void click(View view) {
+	
+	@Override
+	public void onClick(View view) {
 		int id =view.getId();
 		switch (id) {
 		case R.id.img_back:
@@ -95,6 +85,11 @@ public class LuckyWheelActivity extends BaseActivity {
 			break;
 		case R.id.title_second:
 			JumpUtil.JumpActivity(context, AwardRecord.class);
+			break;
+		case R.id.btn_click:
+			IsStartTurn = true;
+			getNetData();// 网络访问
+
 			break;
 
 		default:
@@ -195,13 +190,28 @@ public class LuckyWheelActivity extends BaseActivity {
 	public void init() {
 		// TODO Auto-generated method stub
 		context = this;
-		ButterKnife.bind(this);
 		AppManager.getInstance().addActivity(this);
 	}
 
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+	
+		layout=(LinearLayout) findViewById(R.id.lucky_wheel);
+		ivGoback=(ImageView) findViewById(R.id.img_back);
+
+		title=(TextView) findViewById(R.id.title_main);
+		title_second=(TextView) findViewById(R.id.title_second);
+		panWheel=(ImageView) findViewById(R.id.pan_wheel);
+		btnClick=(ImageView) findViewById(R.id.btn_click);
+		firstAward=(TextView) findViewById(R.id.first_award);
+		secondAward=(TextView) findViewById(R.id.second_award);
+		thirdAward=(TextView) findViewById(R.id.third_award);
+		fourthAward=(TextView) findViewById(R.id.fourth_award);
+		fifthAward=(TextView) findViewById(R.id.fifth_award);
+		sixthAward=(TextView) findViewById(R.id.sixth_award);
+		sevenAward=(TextView) findViewById(R.id.seven_award);
+
 		title.setText("幸运大转盘");
 		title_second.setText("中奖记录");
 		
@@ -211,6 +221,11 @@ public class LuckyWheelActivity extends BaseActivity {
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
+		btnClick.setOnClickListener(this);
+		ivGoback.setOnClickListener(this);
+		title_second.setOnClickListener(this);
+		
+		
 
 	}
 

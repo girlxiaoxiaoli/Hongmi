@@ -5,14 +5,13 @@ import com.yolanda.nohttp.rest.Request;
 import com.yolanda.nohttp.rest.Response;
 
 import android.os.Handler;
-import butterknife.Bind;
 import zz.guojin.hongmi.view.XListView;
 import zz.guojin.hongmi.view.XListView.IXListViewListener;
 import zz.guojin.hongmi.R;
 
 public abstract class BaseListFragment extends BaseFragment2 implements
 		IXListViewListener {
-	@Bind(R.id.xlistview)
+
 	XListView xlistview;
 	protected Runnable refreshRunnable, loadMoreRunnable;
 	protected Handler handler;
@@ -36,6 +35,7 @@ public abstract class BaseListFragment extends BaseFragment2 implements
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		xlistview = (XListView) rootView.findViewById(R.id.xlistview);
 		xlistview.setPullRefreshEnable(true);
 		xlistview.setPullLoadEnable(true);
 		xlistview.hideFootView();

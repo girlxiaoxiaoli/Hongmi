@@ -8,34 +8,17 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 import com.yolanda.nohttp.Logger;
-import com.yolanda.nohttp.NoHttp;
-import com.yolanda.nohttp.RequestMethod;
-import com.yolanda.nohttp.rest.OnResponseListener;
 import com.yolanda.nohttp.rest.Request;
-import com.yolanda.nohttp.rest.RequestQueue;
-import com.yolanda.nohttp.rest.Response;
 
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import zz.guojin.hongmi.adapter.MyOutAdapter;
 import zz.guojin.hongmi.adapter.ViewHodler;
 import zz.guojin.hongmi.bean.GiveOrderPdBean;
-import zz.guojin.hongmi.bean.MarryBean;
 import zz.guojin.hongmi.bean.GiveOrderPdBean.PdData;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.view.XListView;
-import zz.guojin.hongmi.view.XListView.IXListViewListener;
 import zz.guojin.hongmi.R;
-import android.app.ProgressDialog;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 //舍记录 排单信息     和得记录javabean参数一样，在此就公用一个javaBean 对象
 public class GetPaidanFrafment extends BaseListFragment {

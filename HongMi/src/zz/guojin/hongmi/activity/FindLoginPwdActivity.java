@@ -3,34 +3,23 @@ package zz.guojin.hongmi.activity;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
-import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.yolanda.nohttp.Logger;
 import com.yolanda.nohttp.rest.Request;
-
-import zz.guojin.hongmi.bean.NewsBean;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.utils.MUrlUtil;
 import zz.guojin.hongmi.utils.MyCountDownTimer;
 import zz.guojin.hongmi.utils.SpUtils;
 import zz.guojin.hongmi.utils.ToastUtils;
 import zz.guojin.hongmi.R;
-
-import butterknife.Bind;
-import butterknife.OnClick;
 import android.content.Context;
 import android.graphics.Color;
-
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,21 +29,21 @@ import android.widget.TextView;
  * Created by Administrator on 2016/10/28. 找回登陆密码
  */
 
-public class FindLoginPwdActivity extends BaseActivity {
-	@Bind(R.id.img_back)
+public class FindLoginPwdActivity extends BaseActivity implements OnClickListener {
+	//(R.id.img_back)
 	ImageView ivGoback;
-	@Bind(R.id.title_main)
+	//(R.id.title_main)
 	TextView titleTextView;
-	@Bind(R.id.et_phone)
+	//(R.id.et_phone)
 	EditText etPhone;
-	@Bind(R.id.et_phone_code)
+	//(R.id.et_phone_code)
 	EditText etPhoneCode;
-	@Bind(R.id.et_phone_pwd)
+	//(R.id.et_phone_pwd)
 	EditText etPhonePwd;
-	@Bind(R.id.btn_number_code)
+	//(R.id.btn_number_code)
 	Button btnNumberCode;
 
-	@Bind(R.id.btn_confirm)
+	//(R.id.btn_confirm)
 	Button btnConfirm;
 	private String loginPhone;
 	private String pwd ;
@@ -66,20 +55,7 @@ public class FindLoginPwdActivity extends BaseActivity {
 	private static final int SEND_PHONE_CODE_TIME = 1001;
 
 
-	@OnClick({ R.id.btn_number_code, R.id.btn_confirm, R.id.img_back })
-	public void myClick(View view) {
-		switch (view.getId()) {
-		case R.id.btn_number_code:
-			getCode();// 获取验证码
-			break;
-		case R.id.btn_confirm:
-			findLoginPwd();// 找回登陆密码
-			break;
-		case R.id.img_back:
-			finish();
-			break;
-		}
-	}
+	
 
 	private void findLoginPwd() {
 		String code = etPhoneCode.getText().toString().trim();
@@ -140,13 +116,23 @@ public class FindLoginPwdActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		ivGoback =(ImageView)findViewById(R.id.img_back);
+		titleTextView =(TextView)findViewById(R.id.title_main);
+		etPhone =(EditText)findViewById(R.id.et_phone);
+		etPhoneCode =(EditText)findViewById(R.id.et_phone_code);
+		etPhonePwd =(EditText)findViewById(R.id.et_phone_pwd);
+		btnNumberCode =(Button)findViewById(R.id.btn_number_code);
+		btnConfirm =(Button)findViewById(R.id.btn_confirm);
+
 		titleTextView.setText("忘记密码");
 	}
 
 	@Override
 	public void initListener() {
 		// TODO Auto-generated method stub
-
+         btnConfirm.setOnClickListener(this);
+         btnNumberCode.setOnClickListener(this);
+         ivGoback.setOnClickListener(this);
 	}
 
 	@Override
@@ -183,7 +169,7 @@ public class FindLoginPwdActivity extends BaseActivity {
 					btnNumberCode.setTextColor(0xffffffff);
 					btnNumberCode.setEnabled(false);
 					MyCountDownTimer mdt = new MyCountDownTimer(btnNumberCode,
-							120000, 1000);
+							120000, 1000,0);
 					mdt.start();
 
 					return;
@@ -192,6 +178,23 @@ public class FindLoginPwdActivity extends BaseActivity {
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			Logger.e(TAG + e.getMessage());
+		}
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub]
+		int id = v.getId();
+		switch (id) {
+		case R.id.btn_number_code:
+			getCode();// 获取验证码
+			break;
+		case R.id.btn_confirm:
+			findLoginPwd();// 找回登陆密码
+			break;
+		case R.id.img_back:
+			finish();
+			break;
 		}
 	}
 

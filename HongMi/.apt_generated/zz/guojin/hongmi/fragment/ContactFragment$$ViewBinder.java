@@ -12,19 +12,19 @@ public class ContactFragment$$ViewBinder<T extends zz.guojin.hongmi.fragment.Con
     target.ll_my_contact = finder.castView(view, 2131034355, "field 'll_my_contact'");
     view = finder.findRequiredView(source, 2131034356, "field 'spinnerCardNumber'");
     target.spinnerCardNumber = finder.castView(view, 2131034356, "field 'spinnerCardNumber'");
+    view = finder.findRequiredView(source, 2131034357, "field 'lybt1'");
+    target.lybt1 = finder.castView(view, 2131034357, "field 'lybt1'");
     view = finder.findRequiredView(source, 2131034359, "field 'but_tij'");
     target.but_tij = finder.castView(view, 2131034359, "field 'but_tij'");
     view = finder.findRequiredView(source, 2131034358, "field 'lynr1'");
     target.lynr1 = finder.castView(view, 2131034358, "field 'lynr1'");
-    view = finder.findRequiredView(source, 2131034357, "field 'lybt1'");
-    target.lybt1 = finder.castView(view, 2131034357, "field 'lybt1'");
   }
 
   @Override public void unbind(T target) {
     target.ll_my_contact = null;
     target.spinnerCardNumber = null;
+    target.lybt1 = null;
     target.but_tij = null;
     target.lynr1 = null;
-    target.lybt1 = null;
   }
 }

@@ -1,33 +1,28 @@
 package zz.guojin.hongmi.activity;
 
 import com.yolanda.nohttp.Logger;
-import com.yolanda.nohttp.rest.Response;
-
-import butterknife.Bind;
-import butterknife.OnClick;
 import zz.guojin.hongmi.utils.AppManager;
 import zz.guojin.hongmi.view.XListView;
 import zz.guojin.hongmi.view.XListView.IXListViewListener;
 import zz.guojin.hongmi.R;
-import zz.guojin.hongmi.R.id;
-import zz.guojin.hongmi.R.layout;
+
 import android.os.Handler;
 
 import android.content.Context;
 
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 public abstract class BaseListActivity extends BaseActivity implements
-		IXListViewListener {
-	@Bind(R.id.img_back)
+		IXListViewListener, OnClickListener {
+	// @Bind(R.id.img_back)
 	ImageView goback;
-	@Bind(R.id.title_main)
+	// @Bind(R.id.title_main)
 	TextView title;
-	@Bind(R.id.title_second)
+	// @Bind(R.id.title_second)
 	TextView title_second;
-	@Bind(R.id.list_activity)
+	// @Bind(R.id.list_activity)
 	protected XListView xListView;
 	protected Context context;
 	protected Runnable refreshRunnable, loadMoreRunnable;
@@ -36,11 +31,6 @@ public abstract class BaseListActivity extends BaseActivity implements
 	protected int currIndex;// 页数下标
 	protected boolean REFRESH = false;
 	protected boolean ISFIRST = true;
-
-	@OnClick(R.id.img_back)
-	public void onClick() {
-	AppManager.getInstance().killActivity(getClass());
-	}
 
 	@Override
 	public int getLayoutResId() {
@@ -60,12 +50,17 @@ public abstract class BaseListActivity extends BaseActivity implements
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
+		goback = (ImageView) findViewById(R.id.img_back);
+		title = (TextView) findViewById(R.id.title_main);
+		title_second = (TextView) findViewById(R.id.title_second);
+		xListView = (XListView) findViewById(R.id.list_activity);
+
 		initTitle();
 		xListView.setPullRefreshEnable(true);
 		xListView.setPullLoadEnable(true);
 		xListView.hideFootView();
 		initAdapter(xListView);
-		
+
 	}
 
 	public abstract void initTitle();
@@ -73,6 +68,7 @@ public abstract class BaseListActivity extends BaseActivity implements
 	public void setTitle(String title) {
 		this.title.setText(title);
 	}
+
 	public void setSecondTitle(String title) {
 		this.title_second.setText(title);
 	}
@@ -81,6 +77,7 @@ public abstract class BaseListActivity extends BaseActivity implements
 	public void initListener() {
 		// TODO Auto-generated method stub
 		xListView.setXListViewListener(this);
+		goback.setOnClickListener(this);
 
 	}
 
@@ -90,7 +87,10 @@ public abstract class BaseListActivity extends BaseActivity implements
 
 	}
 
-
+	@Override
+	public void onClick(android.view.View v) {
+		AppManager.getInstance().killActivity(getClass());
+	}
 
 	@Override
 	public void toStartProgressDialog() {

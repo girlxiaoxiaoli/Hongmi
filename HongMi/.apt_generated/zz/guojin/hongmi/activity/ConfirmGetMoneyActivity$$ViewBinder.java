@@ -10,10 +10,12 @@ public class ConfirmGetMoneyActivity$$ViewBinder<T extends zz.guojin.hongmi.acti
     View view;
     view = finder.findRequiredView(source, 2131034465, "field 'title'");
     target.title = finder.castView(view, 2131034465, "field 'title'");
-    view = finder.findRequiredView(source, 2131034189, "field 'male'");
-    target.male = finder.castView(view, 2131034189, "field 'male'");
     view = finder.findRequiredView(source, 2131034188, "field 'sex'");
     target.sex = finder.castView(view, 2131034188, "field 'sex'");
+    view = finder.findRequiredView(source, 2131034189, "field 'male'");
+    target.male = finder.castView(view, 2131034189, "field 'male'");
+    view = finder.findRequiredView(source, 2131034214, "field 'male1'");
+    target.male1 = finder.castView(view, 2131034214, "field 'male1'");
     view = finder.findRequiredView(source, 2131034464, "field 'goback' and method 'img_back'");
     target.goback = finder.castView(view, 2131034464, "field 'goback'");
     view.setOnClickListener(
@@ -24,15 +26,13 @@ public class ConfirmGetMoneyActivity$$ViewBinder<T extends zz.guojin.hongmi.acti
           target.img_back(p0);
         }
       });
-    view = finder.findRequiredView(source, 2131034214, "field 'male1'");
-    target.male1 = finder.castView(view, 2131034214, "field 'male1'");
   }
 
   @Override public void unbind(T target) {
     target.title = null;
-    target.male = null;
     target.sex = null;
-    target.goback = null;
+    target.male = null;
     target.male1 = null;
+    target.goback = null;
   }
 }

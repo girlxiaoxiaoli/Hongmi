@@ -20,7 +20,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue"
+                android:background="@color/blue1"
                 android:padding="20dp" >
 
                 <ImageView
@@ -96,17 +96,30 @@
                     android:layout_toRightOf="@id/grade_user"
                     android:text="红米会员"
                     android:textColor="@color/white" />
-            </RelativeLayout>
+                <TextView
+                    android:id="@+id/time_dami_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/id_user"
+                    android:layout_below="@id/grade_user"
+                    android:text="打米时间:"
+                    android:textColor="@color/white" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.1dp"
-                android:background="@color/blue" />
+                <TextView
+                    android:id="@+id/tv_time_dami_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/time_dami_user"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/time_dami_user"
+                    android:text=""
+                    android:textColor="@color/white" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/blue"
+                android:background="@color/blue1"
                 android:orientation="horizontal" >
 
                 <RelativeLayout style="@style/weight_width" >
@@ -128,22 +141,6 @@
                 <RelativeLayout style="@style/weight_width" >
 
                     <TextView
-                        android:id="@+id/money2"
-                        style="@style/tv_first"
-                        android:text="经理钱包" />
-
-                    <TextView
-                        android:id="@+id/tv_money2"
-                        style="@style/tv_first"
-                        android:layout_below="@id/money2"
-                        android:text="0" />
-                </RelativeLayout>
-
-                <View style="@style/space_vertical" />
-
-                <RelativeLayout style="@style/weight_width" >
-
-                    <TextView
                         android:id="@+id/money3"
                         style="@style/tv_first"
                         android:text="推荐钱包" />
@@ -152,6 +149,22 @@
                         android:id="@+id/tv_money3"
                         style="@style/tv_first"
                         android:layout_below="@id/money3"
+                        android:text="0" />
+                </RelativeLayout>
+
+                <View style="@style/space_vertical" />
+
+                <RelativeLayout style="@style/weight_width" >
+
+                    <TextView
+                        android:id="@+id/money2"
+                        style="@style/tv_first"
+                        android:text="经理钱包" />
+
+                    <TextView
+                        android:id="@+id/tv_money2"
+                        style="@style/tv_first"
+                        android:layout_below="@id/money2"
                         android:text="0" />
                 </RelativeLayout>
             </LinearLayout>
@@ -193,7 +206,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:text="温馨提示：投资有风险，入市需 谨慎."
-                android:textColor="@color/colorTheme"
+                android:textColor="@color/red"
                 android:textSize="15sp" />
 
             <View style="@style/space_horizontal" />
@@ -211,7 +224,7 @@
                     android:drawableLeft="@drawable/shopping"
                     android:gravity="center"
                     android:text="红米商城"
-                    android:textColor="#ff0000"
+                    android:textColor="@color/red"
                     android:textSize="20sp" />
 
                 <TextView
@@ -221,7 +234,7 @@
                     android:background="@drawable/shop_shape"
                     android:drawableLeft="@drawable/turning"
                     android:gravity="center"
-                    android:text="大转盘"
+                    android:text="幸运大转盘"
                     android:textColor="#009fec"
                     android:textSize="20sp" />
             </LinearLayout>
